@@ -1,0 +1,46 @@
+READING 1: ESTIMATING MARKET RISK MEASURES: AN INTRODUCTION AND OVERVIEW
+
+1. arithmatic return and log return
+rt = (Pt+Dt-Pt-1)/Pt-1 = (Pt+Dt)/Pt-1 - 1  
+   which belongs to (-1, +inf)
+Rt = ln(Pt+Dt/Pt-1) = ln(1+rt) 
+   which belongs to (-inf, +inf)
+   
+2. VaR and lognormal VaR
+VaR
+in percent term aVaR(a) = -mean+Z_a*std
+in dollar term  Var(a) = (-mean+Z_a*std)*Pt-1
+in 95% C.I. (a=95%). 95%VaR = -mean+1.65*std
+in 99% C.I. (a=99%). 99%VaR = -mean+2.33*std
+
+lognormal VaR
+VaR(a) = 1 - exp(mean-Z_a*std)
+Derivation:
+def critical value of return R* = mean - Z_a*std  s.t. prob(R>R*) = 95%
+as Pt = (Pt-1)*exp(R)
+and by definition of aVaR,
+VaR = Pt-1 - Pt* = Pt-1 - Pt-1*exp(R*) = Pt-1(1-exp(mean-Z_a*std))
+aVaR = 1-exp(mean-Z_a*std)
+
+3. Expected Shortfall (conditional VaR)
+equally weighted value of loss at tail
+
+4. coherent risk measure
+a more general risk measure, (uneuqally) weighted average of the all quantiles of the loss distribution.
+
+5. standard error
+The standard error (SE) of a statistic (usually an estimate of a parameter) is the standard deviation of its sampling distribution
+or an estimate of that standard deviation.
+
+e.g. Construct a 90% confidence interval for 5% VaR (the 95% quantile) drawn from a standard normal
+distribution. Assume bin width = 0.1 and that the sample size is equal to 500.
+bin width - width of intervals
+5%VaR = -mean + Z_a*std = 0 + 1.65*1 = 1.65
+so. 1.65-1.65*se(q) < VaR < 1.65+1.65*se(q)
+
+90% C.I.  -- 1.65. with bin width 0.1 -- q in [1.6, 1,7]
+
+
+standard error of the quantile q: se(q) = sqrt(p(1-p)/n)/f(q)
+where prob mass f(q) = 1 - prob(L<1.6) - prob(L>1.7) = 1 - 0.045 - 0.945 = 0.01
+      
