@@ -1,0 +1,211 @@
+READING 1: ESTIMATING MARKET RISK MEASURES: AN INTRODUCTION AND OVERVIEW
+
+1. arithmatic return and log return
+rt = (Pt+Dt-Pt-1)/Pt-1 = (Pt+Dt)/Pt-1 - 1  
+   which belongs to (-1, +inf)
+Rt = ln(Pt+Dt/Pt-1) = ln(1+rt) 
+   which belongs to (-inf, +inf)
+   
+2. VaR and lognormal VaR
+VaR
+in percent term aVaR(a) = -mean+Z_a*std
+in dollar term  Var(a) = (-mean+Z_a*std)*Pt-1
+in 95% C.I. (a=95%). 95%VaR = -mean+1.65*std
+in 99% C.I. (a=99%). 99%VaR = -mean+2.33*std
+
+lognormal VaR
+VaR(a) = 1 - exp(mean-Z_a*std)
+Derivation:
+def critical value of return R* = mean - Z_a*std  s.t. prob(R>R*) = 95%
+as Pt = (Pt-1)*exp(R)
+and by definition of aVaR,
+VaR = Pt-1 - Pt* = Pt-1 - Pt-1*exp(R*) = Pt-1(1-exp(mean-Z_a*std))
+aVaR = 1-exp(mean-Z_a*std)
+
+3. Expected Shortfall (conditional VaR)
+equally weighted value of loss at tail
+
+4. coherent risk measure
+a more general risk measure, (uneuqally) weighted average of the all quantiles of the loss distribution.
+
+5. standard error
+The standard error (SE) of a statistic (usually an estimate of a parameter) is the standard deviation of its sampling distribution
+or an estimate of that standard deviation.
+
+e.g. Construct a 90% confidence interval for 5% VaR (the 95% quantile) drawn from a standard normal
+distribution. Assume bin width = 0.1 and that the sample size is equal to 500.
+bin width - width of intervals
+5%VaR = -mean + Z_a*std = 0 + 1.65*1 = 1.65
+so. 1.65-1.65*se(q) < VaR < 1.65+1.65*se(q)
+
+90% C.I.  -- 1.65. with bin width 0.1 -- q in [1.6, 1,7]
+
+
+standard error of the quantile q: se(q) = sqrt(p(1-p)/n)/f(q)
+where prob mass f(q) = 1 - prob(L<1.6) - prob(L>1.7) = 1 - 0.045 - 0.945 = 0.01
+
+## ---------------------------------------------------------------------------------------
+READING 2: NON-PARAMETRIC APPROACHES
+1. bootstrap historical simulation
+best VaR estimate -- the average of all repeated sampling VaRs with replacement
+also applies to ES and other measures
+
+2. density estimation
+interpolation of observations, can take any confidence levels
+
+3. ghost effect
+high VaR comes slowly and suddenly, also disappears suddenly
+ES performs better than VaR in this sense
+
+4. age-weighted historical simulation
+n obs. set 1-day old weight: w(1) = (1-lambda)/(1-lambda**n)  --  benchmark weight
+i-day old weight: w(i) = (lambda**(i-1))*(1-lambda)/(1-lambda**n) = (lambda**(i-1))*w(1)
+- more responsive to large loss, reduce distortions by unlikely event and ghost effect
+- VaR are only affected by weightings if interpolation is applied
+
+5. volatility-weighted historical simulation
+historical volatility forecast (GARCH or EWMA) - sigma_t | current - sigma_T
+volatility-adjusted return r* = (sigma_T/sigma_t)*r
+- allow to obtain VaR and ES estimates that can exceed the max loss in history
+- can be combined with age-weighted method 
+
+6. correlation-weighted historical simulation
+- evolved version of volatility-weighted
+
+7. filtered historical simulation
+- uses bootstrapping and combines the traditional historical simulation with volatility modeling
+
+8. pros and cons of non-parametric method
+pros
+- intuitive and computationally simple
+- not hindered by parameteric violations of skewness, fat-tails, et cetera
+- avoids complex var-cov matrix and dimension problems
+- data is often available and does not require adjustments
+- can accommodate more complex analysis
+
+cons
+- analysis depends critically on historical data
+- volatile data periods lead to VaR and ES estimates that are too high
+- quiet data periods lead to VaR and ES estimates that are too low
+- difficult to detect structural shifts/regime changes in the data
+- difficult to estimate loss significantly larger than the max loss within the data set
+- need sufficient data, which may not be possible for new instruments or markets
+
+## ---------------------------------------------------------------------------------------
+READING 3:BACKTESTING VAR
+1. definition
+to compare the history of VaR forecasts to actual portfolio returns
+exceptions: obs falling outside VaR
+too many exceptions - the model underestimate risk
+too few exceptions - the model overestimate risk
+
+2. frozen VaR
+VaR assume frozen portfolio, but the portfolio evolves dynamically
+contamination: actual portfolio contaminated by changes in its composition
+
+3. failure rate
+- proportion of times VaR is exceeded in a given sample
+no. of exceptions follows a binomial probability distribution
+f(x) = combo(T,x)*(p^x)*((1-p)^(T-x))
+where p = 1 - confidence-level
+E(x) = pT   Var(x) = p(1-p)T
+z-score = (x-pT)/sqrt(p(1-p)T)
+- the longer the window, the easier the rejection
+
+4. Type I error and Type II error
+- Type I error is more serious than type II error because I precedes II
+- Therefore, type I error is about rejecting, cause rejecting is more powerful
+so, Type I error - error of rejecting a wrong model
+    Type II error - error of accepting a right model
+- model verification test involves a tradeoff between Type I and Type II errors
+  the goal is try to strike a balance between Type I and Type II
+
+5. kupiec VaR backtest
+H0: accurate model Ha: inaccurate model
+test-stat =  LRuc = -2Ln[((1-p) xexp (T-N))*P xexp N] + 2Ln[((1-(N/T)) xexp (T-N))*(N/T) xexp N)
+reject H0 if LR > 3.841
+- detection of systematic biases becomes increasingly difficult for high values of c because execptions are rare.
+- therefore, lower VaR + large number of obs + short horizon are best
+
+6. conditional coverage
+- all above is unconditional coverage, in which the timing of exceptions was not considered.
+when exceptions are clustered, it may indicate that marker correlations have changed OR trading positions have been altered.
+conditional coverage are performed when exceptions are clustered together
+LRcc = LRuc + LRind
+condition = uncondition + log-likelihood
+95% - reject the model if LRcc>5.99 and reject the independece term alone if LRind>3.84
+
+7. Basel for backtesting
+99% C.I.  Economic capital = VaR*(3+k)
+n = no. of exceptions  
+if n<5: k = 0 |  if n > 10: k = 1 | else: roughly interpolate
+4 causes:
+1. basic integrity of the model is lacking - penalty apply
+2. model accuracy needs improvement        - penalty apply
+3. intraday trading                        - penatly considered
+4. bad luck                                - no penalty
+
+## ---------------------------------------------------------------------------------------
+READING 4:VAR MAPPING
+1. definition
+replace the current values of a portfolio with risk factor exposures.
+positions mapped to risk factors by factor exposures
+
+2. mapping fixed-income
+principal mapping
+- only consider the risk of repayment of principal amounts
+- consider the average maturity, then use zero-coupon bond that equals the average maturity
+duration mapping
+- mapped to a zero-coupon bond of the same duration
+cash flow mapping
+- risk decomposed into the risk of each of the bond's cash flows (most precise)
+- undiverified VaR = sum over discounted CFi*VaRi    - the VaR if perfectly correlated
+- diversified VaR = sqrt((x*V)R(x*V))
+  where x - pv of cf, V - VaR of zero-coupon bond returns, R - correlation matrix
+- VaR(Prn) > VaR(duration) > VaR(diversified)
+ 
+3. risk category
+- general (primitive) risk factors
+- specific risks
+
+4. stress test
+- you can individually stress test cash flow only if their correlation is 1
+
+5. benchmarking a portfolio
+tracking error VaR: the difference between the VaR of the target portfolio and the benchmark portfolio
+
+6. mapping Linear Derivatives
+- currency forward contract 
+long currency forward contract = long foreign currency spot + long foreign currency bill + short U.S. dollar
+in steps: @t0 borrow U.S. dollar - change it into CNY - invest in CNY bond, @t1 change back into U.S. dollar
+
+- forward rate agreements
+6*12 FRA means rates from 6 months to 12 months
+long 6*12 FRA = long 6-month bill + short 12-month bill
+in steps: @t0, long and short above, @t1 reinvest cash fro 6-month bill
+
+- interest rate swaps
+payer swap = long a floating-rate bond + short a fixed rate bond
+
+- options
+c = Se^(-yt)*N(d1) - Ke^(-rt)*N(d2)
+long call = long N(d1)asset + short N(d2)bill
+long put = long(-d2)bill + short N(-d1)asset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
