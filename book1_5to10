@@ -1,0 +1,43 @@
+READING 5: risk measurement for the trading book
+1. VaR implementation
+- time horizon
+time horizon depends on [measurement purpose] and [portfolio liquidity]
+for regulatory capital purpose, the horizon should be long
+- time-varying volatility (and correlations)
+as time horizon increase, the effect of time-varying volatility decrease
+but ignoring it leads to an underestimation of risk
+- backtesting
+not effective when the number of VaR exceptions is samll
+less effective over longer time horizons due to portfolio instability
+
+2. integrating liquidity risk into VaR models
+- exogenous liquidity
+transaction costs, easily integrated using liquidity-adjusted VaR(LVaR)
+- encogenous liquidity
+market impact, the elaticity of prices to trading vols, difficult to integrate
+
+3. ES better than VaR in terms of
+- account for the severity of losses beyond the confidence threshold
+- subadditive and coherent
+- mitigates the impact of the choice of confidence level
+spectral risk measure is a generalized form of ES, which takes aversion to risk into account
+
+4. Integrated risk measurement
+- compartmentalised approach
+sum if risks measured separately, the approach that Basel takes
+- unified approach
+consider the interaction between risk
+
+5. risk aggregation
+- top-down approach
+reference the institution as a whole, assume the risks are [cleanly separable] and can be aggregated in a way
+risk diversification is present
+- bottom-up approach
+attempt tp account for interactions among risk factors
+risk diversification should be questioned
+
+6. balance sheet management
+risks and regulatory capital charges can work as systemic [amplifier] of economic cycles
+when a balance sheet is actively managed, leverage become procyclical
+- economic boom - relax VaR constraint - equity expansion when price goes up - take more risk and increase debt
+- economic bust - tighten VaR constraint - sell equity when price goes down - further reduce leverage
