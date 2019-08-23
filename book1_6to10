@@ -1,0 +1,61 @@
+READING 6: correlation basics: properties, motivation, terminology
+1. category
+- static financial correlation
+measure the relationship between assets for a specific time period - do not change
+e.g. VaR, correlation copulas, binominal default correlation
+- dynamic financial correlation
+measure the comovement of assets over time
+e.g. pairs trading, deterministic correlation approaches, stochastic correlation processes
+
+2. wrong way risk
+e.g.1 invest a bond in Spain, and long a CDS(like insurance) from a French bank
+due to the high correlation among Europe countries, both could default
+e.g.2 invest in Nikkei(Jap stock mkt), and long a quanto call(call on exchange rate)
+due to the high correlation between Jap stock mkt and the value of Jap money,
+when the mkt rises, the quanto become useless
+
+3. ways to long correlation
+- corrlation swap
+long correlation = pay a fixed correlation + receive a float(actual) correlation
+the payoff = NP*(acutal cor - fixed cor)
+- long call on Dow Jones, short call on individual stocks
+when correlation rise(bear mkt), both underlyings goes down
+but more volatility in Dow Jones due to the correlation, less volatile in stocks
+more value of call on Dow Jones, less value of call on indi stock
+u make money
+- variance swap
+long variance(pay fix, receive float) on index
+short variance(pay float, receive fix) on stock
+equalize two fixes, you receive float on index and pay float on stock
+when correlation rise, more volatile on index, less volatile on stock
+u make money
+
+4. 2005 credit crisis
+CDO - senior/mezzanine/equity
+[1]they short the CDS(insurance) on equity and long the CDS on mezz
+[2]and the correlation of payment goes down
+cor goes down - 
+[1]value of equity goes down - risk of equity goes up - premium of equity goes up - paper loss on CDS already short
+[2]value of mezz goes up - risk of mezz goes down - premium of mezz goes down - paper loss on CDS already long
+u lose money
+
+5. 2007-8 credit crisis
+[1]they long equity
+[2]and the correlation of payment goes up
+which is good because the value of equity increase, u make some money
+but the rising correlation is due to default on payment, u lose more money
+
+6. credict risk
+default correlation within sectors is higher than between sectors
+the longer the time horizon, the higher the probability of adverse events
+
+7. systemic risk
+systemic risk and correlation risk are highly dependent
+portoflios considered well-diversified in benign times may encounter a sharp increase in correlation and incur unexpected loss
+
+## ---------------------------------------------------------------------------------------
+READING 7: empirical properties of correlation
+in good times - low correlation, low correlation volatility
+in bad times - high correlation, high correlation volatility
+- mean reversion triumphs autocorrelation
+- before every recession, a downturn in correlation volatility
