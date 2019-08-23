@@ -18,6 +18,7 @@ when the mkt rises, the quanto become useless
 - corrlation swap
 long correlation = pay a fixed correlation + receive a float(actual) correlation
 the payoff = NP*(acutal cor - fixed cor)
+cor_actual = (2/(n^2 - n))*cor(i,j)  [i>j]
 - long call on Dow Jones, short call on individual stocks
 when correlation rise(bear mkt), both underlyings goes down
 but more volatility in Dow Jones due to the correlation, less volatile in stocks
@@ -52,6 +53,14 @@ the longer the time horizon, the higher the probability of adverse events
 7. systemic risk
 systemic risk and correlation risk are highly dependent
 portoflios considered well-diversified in benign times may encounter a sharp increase in correlation and incur unexpected loss
+
+8. concentration risk
+A and B both default
+P(AB) = cor(A,B)*sqrt(PD_A*(1-PD_A)*PD_B*(1-PD_B)) + PD_A*PD_B
+
+9. default term structure
+for most investment grade bonds, increases slightly with time to maturity
+for non-investment grade bonds, the probability is higher in the immediate time horizon
 
 ## ---------------------------------------------------------------------------------------
 READING 7: empirical properties of correlation
