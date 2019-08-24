@@ -68,3 +68,82 @@ in good times - low correlation, low correlation volatility
 in bad times - high correlation, high correlation volatility
 - mean reversion triumphs autocorrelation
 - before every recession, a downturn in correlation volatility
+
+## ---------------------------------------------------------------------------------------
+READING 8: correlation models
+1. limitations of financial models
+- inaccurate input
+mkt values are as rational as the investors who made the decision
+- erroneous assumptions regarding underlying asset distribution
+VaR - return follow normal distribution (higher kurtosis, fatter tails)
+BSM - strike prices have constant volatility (higher volatility for out-of-the money option and volatility skew in equity mkts)
+- mathematical inconsistencies
+BSM - when knock-out price = strike price and interest rate = underlying asset return,
+      up-and-out/down-and-out calls/puts, the model insensitive to changes in implies volatility and option maturity
+
+2. limitations of financial model outputs
+copula failed for
+[1] assumptions that a negative correlation between the equity and senior tranches of CDOs
+[2] model calibrated with volatility and correlation estimates with date from past period
+
+3. limitations of pearson correlation
+[1] linear dependencies
+[2] correlation of 0 does not imply independence (x^2~x)
+[3] require elliptical joint distribution (normal or t)
+[4] variance of X and y have to finite
+[5] cannot do transformed data (no ln(x))
+
+4. Spearman's rank correlation
+step 1: (X,Y) to (sorted(X), Y[np.argsort(X)]
+step 2: rank(sorted(X)), rank(Y[np.argsort(X)]
+step 3: sum((rank(sorted(X)) - rank(Y[np.argsort(X)]))^2)
+step 4: 1 - 6*step3/n(n^2-1)
+
+5. Kendall's t
+for any pair (x1,y1), (x2,y2)
+concordant pair: sgn(x1-x2) = sgn(y1-y2)
+discordant pair: sgn(x1-x2) = -sgn(y1-y2)
+t = (nc-nd)/((n(n-1)/2)
+
+6. limitations of ordianl
+- less sentitive to changes or outliers than cardianl
+- kendall's t may have non-con/discordant pair
+
+## ---------------------------------------------------------------------------------------
+READING 9: copula
+- def
+a joint multivariate distribution that describes how variables from marginal distributions come together
+by mapping multiple distributions to a single multivariate distribution
+
+copula function, C: [0,1] n-d to [0,1] 1-d
+C[G_1(u_1),...,G_n(u_n)] = F_n[F_1_inverse(G_1(u_1)),...,F_n_inverse(G_n(u_n));cor_F]
+G(i) - marginal distribution
+F_n - joint cumulative distribution
+cor_F - correlation matirx of F_n
+marginal PD - cumulative PD Q(t) - Normal percentiles N_inverse(Q(t))
+
+M_n(.) = Q_i(t_i)
+random samples are drawn from an n-var standard normal distribution sample M_n(.) 
+to estimate expected default times using the Gaussian copula
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
