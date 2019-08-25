@@ -126,24 +126,40 @@ M_n(.) = Q_i(t_i)
 random samples are drawn from an n-var standard normal distribution sample M_n(.) 
 to estimate expected default times using the Gaussian copula
 
+## ---------------------------------------------------------------------------------------
+READING 10: empirical approaches to risk metrics and hedging
+1. DV01 hedge
+DV01 stands for dollar value of a basis point
+- to measure price change of bond, d_P = -D*P*d_y
+  where D - duration / P - price / dy - change of interest rate
+- to hedge an underlying asset with a hedging asset
+  D_u*P_u*d_Y_u + n*D_h*P_h*d_Y_h = 0
+  assuming same d_Y, hedge ratio n = DV01_u/DV01_h
+drawbacks:
+[1] to assume same d_Y, i.e. yield on a bond and hedging instrument rise and fall by the same number
+[2] to assume parallel shifts, ignore curve/twist risk
 
+2. Regression hedge
+Instead of assuming DV01-neutral, you regress to get a coefficient describing the changes in yield
+pro: provides an estimate of a hedged portfolio's volatility
+d_Y_u = alpha + beta*d_Y_h + epsilon
+hedge ratio = (DV01_u/DV01_h)*(d_Y_u/d_Y_h) = (DV01_u/DV01_h)*beta
+two-variable regression hedge
+e.g. suppose you want to sell a 20-year swap, because of its illiquidity, you sell a 10-year and a 30-year
+d_y_20 = alpha + beta_10*d_y_10 + beta_30*d_y_30 + epsilon
+- beta_10 = (-F_10*DV01_10)/(F_20*DV01_20)
+- beta_30 = (-F_30*DV01_30)/(F_20*DV01_20)
 
+3. level and change regression
+level-on-level: y = alph + beta*x + epsilon
+change regression: epsilon_t = rho*epsilon_t-1 + v_t
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+4. PCA
+PCA attempts to explain to all factor exposures using a small number of uncorrelated exposures
+Assumptions on PCs:
+[1] sum of variances of PCs  = sum of the variances of the individual rates
+[2] PCs are uncorrelated with each other
+[3] Each PC is chosen to have the maximum possible variance given all earlier PCs
+Pro: only need to account for the first three PCs
 
 
