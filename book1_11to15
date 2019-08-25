@@ -1,0 +1,54 @@
+READING 11: the science of term structure
+1. interest rate tree
+no arbitrage opportunities for on-the-run(newly issued) bond
+what we have here is recombining tree
+assuming state-dependent volatility, it results in  nonrecombining trees
+
+2. risk neutral
+risk-neutral probailities: market price = discounted value using a binominal tree
+risk-neutral probs - true probs = interest rate drift
+risk-neutral pricing
+- adjust the interest rates on the paths
+- adjust the probs
+
+3. option pricing
+[1] price the bonds at nodes
+[2] calculate the intrinsic value of option
+[3] discount with risk-neutral probs
+
+4. valuing CMT swap
+CMT: constant maturity treasury
+CMT swap: an agreement to swap floating rate for a Treasury rate such as the 10-year rate
+
+5. OAS (option-adjusted spread)
+the spread that makes the model value = current mkt price
+only affect rates for discounting values, not estimating cahs flows
+
+6. BSM cannot be used for pricing fix-income because:
+[1] assume no upper limit. but bonds has max value when interest rate=0
+[2] assume constant risk-free rate
+[3] assume constant bond price volatility
+
+7. bonds with embedded options
+- callable bonds
+issuer has the right to buy back at strike
+for option-free bond, prices will rise unabated as yields falls
+for callable bond at some point, price will start slow down and eventually level off - this is called negative convexity
+- putable bonds
+bondholder the right to sell the bond back at strike
+at low yield levels, putable bonds is similar to non-putables because the holder will not excrcise
+at high yield levels, putable bonds has more value
+
+## ---------------------------------------------------------------------------------------
+READING 12: the shape of term structure
+1. pure expectations theory
+term structre is a function of expected future spot rates
+the shape of the spot rate curve is determined solely by expected future spot rates
+
+2. the volatility of expected rates creates convexity, which lowers future spot rates
+
+3. value of convexity increase with volatility
+   the reduction in yields = value of convexity
+   
+4. value of convexity increase with maturity
+   because the price-yield relationship will be more convex
