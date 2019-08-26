@@ -128,5 +128,42 @@ d_ln_r = alpha(t)*d_t + sigma*d_w
 - does not produce a naturally recombining interest rate tree (dt must be recalibrated to recombine)
 d_ln_r = k(t)[ln_theta(t) - ln_r]*d_t + sigma(t)*d_w
 
+## ---------------------------------------------------------------------------------------
+READING 15: volatility smiles
+1. put-call parity
+C - P = S - Xexp(-rt)
+"c minus p equals s minus x discount"
+p_mkt - p_BSM = c_mkt - c_BSM
+which implies that the implied volatility of a call and put will be equal
 
+2. volatility smiles for foreign currency options (implied volatility ~ strike)
+a lot of price jumps in foreign currency - fatter tails than lognormal - riskier(higher volatility) on tails
+at the money options have the lowest volatility
 
+3. volatility smirks(skew) for equity options
+leverage + crashophobia - fatter left tail and thinner right tail than lognormal - riskier on left and less risky on right
+at the money options does not have the lowest volatility
+
+4. alternative ways to characterize the volatility smile
+[1] replace X with X/S_0
+[2] replace X with X/F_0  -  some think that the forward price is a better gauge
+[3] replace X with options' delta
+
+5. volatility term structure
+when short-dated volatilities are low, volatility tends to be an increasing function of maturity
+when short-dated volatilities are high, volatility tends to be an inverse function of maturity
+
+6. volatility surface
+combine volatility smiles with the time to maturity and K/S_0 (previously just strike)
+
+7. option greeks
+option greeks, such as vega and delta, may be affected by the implied volatility of an option
+- sticky strike rule
+  assumes that an option's implies volatility is the same over short time periods
+- sticky delta rule
+  assumes the relationship between an option's price and the ratio of underlying to strike price applies in subsequent periods
+  as volatility reflects the moneyness of the option, so the delta calculation includes an adjustment factor
+  if the rule holds, the option's delta will be higher than BSM
+ 
+8. price jumps
+停牌 - stock prices into a mixture of two lognormal distribution - volatility frown
