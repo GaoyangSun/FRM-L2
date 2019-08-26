@@ -52,3 +52,81 @@ the shape of the spot rate curve is determined solely by expected future spot ra
    
 4. value of convexity increase with maturity
    because the price-yield relationship will be more convex
+
+## ---------------------------------------------------------------------------------------
+READING 13: the art of term structure - drift
+READING 14: the art of term structure - volatility and distribution
+1. model I
+- no drift and normally distributed interest rates
+d_r = sigma*d_w
+d_w = epsilon*sqrt(d_t)
+where d_r: change in interest rates over d_t
+      sigma: annual volatility
+      d_w: N(0, d_t)
+      epsilon: N(0, 1)
+- possibility of negative short-term rates
+solution 1: assume non-negative distributions
+            such as lognormal or chi-squared distributions, but may introduce skewness or unwanted volatility
+solution 2: force negative rates to 0
+            better than solution 1
+- effectiveness
+[1] no-drift assumption does not give enough flexibility
+[2] predicts a flat term structure of volatility, whereas the observed volatility term is bell-shaped
+[3] has only one factor - short-term rate
+[4] implies that change in short-term rate would lead to a parallel shift in the yield curve
+
+2. model II
+- with constant drift term, which could be interpreted as risk premium with longer horizons
+d_r = lambda*d_t + sigma*d_w
+- effectiveness
+more effective than model I.
+drift can be viewed as a combination of the risk premium and expected rate change
+
+3. Ho-Lee model
+- time-dependent drift
+d_r = lambda(t)*d_t + sigma*d_w
+
+4. arbitrage-free models and equlibrium models
+- arbitrage-free models
+used to quote the prices of securities that are illiquid or customized
+2 detractors: [1] subject to the suitability of the original pricing model
+              [2] assumes that underlying prices are accurate
+- equilibrium models
+to do relative analysis, comparing the value of one security to another
+
+5. Vasicek model
+- mean-reversion for short-term interest rates (breaks down during structural breaks such as hyperinflation)
+d_r = k(theta-r)*d_t + sigma*d_w
+k: speed of reversion
+theta: long-run mean of short-term rate assuming risk neutrality
+r: current level
+theta = r1 + lambda/k
+- effectiveness
+improves the specification of the term structure, but also produces a downward-sloping term structure of volatility
+in comparison, model I predicts flat volatility of interest, and implies parallel shifts, shocks affects all maturities
+
+6. model III
+- time-dependent drift and volatility
+d_r = lambda(t)*d_t + sigma(t)*d_w
+assuming volatility exponentially declines to 0, i.e. sigma(t) = sigma*exp(-alpha*t)
+d_r = lambda(t)*d_t + sigma*exp(-alpha*t)*d_w
+- effectiveness
+[1] time-dependent volatility is more flexible, particularly useful for pricing multi-period derivatives.
+[2] the market forecasts short-term volatility far out into the future, which is unlikely
+
+7. Cox-Ingersoll-Ross(CIR) model
+- basic-point volatility increases with the short_term rate (square root)
+d_r = k(theta-r)*d_t + sigma*sqrt(r)*d_w
+
+8. lognormal models
+- cumulative effect is multiplicative
+- model IV: basis-point volatility increase with short-term rate, yield volatility (sigma) stay constant
+d_r = alpha*r*d_t + sigma*r*d_w
+- Salomon Brothers model (lognormal with deterministic drift)
+d_ln_r = alpha(t)*d_t + sigma*d_w
+- Black-Karasinski model (lognormal with mean reversion)
+- does not produce a naturally recombining interest rate tree (dt must be recalibrated to recombine)
+d_ln_r = k(t)[ln_theta(t) - ln_r]*d_t + sigma(t)*d_w
+
+
+
