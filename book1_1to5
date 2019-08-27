@@ -12,7 +12,8 @@ profit = Pt - Pt-1 # loss in positive value = Pt-1 - Pt
 therefore, VaR = critical loss = Pt-1 - Pt* / Pt* as the critical value
 
 VaR
-in percent term aVaR(a) = -mean+Z_a*std       (do not reflect this on axis)
+in percent term aVaR(a) = -(mean-Z_a*std)       
+- basically assume that mean - Z_a*std, i.e. the residual or tail region is smaller than 0
 in dollar term  Var(a) = (-mean+Z_a*std)*Pt-1
 in 95% C.I. (a=95%). 95%VaR = -mean+1.65*std
 in 99% C.I. (a=99%). 99%VaR = -mean+2.33*std
@@ -156,6 +157,8 @@ replace the current values of a portfolio with risk factor exposures.
 positions mapped to risk factors by factor exposures
 
 2. mapping fixed-income
+VaR_bond = Duration * VaR_interestRate
+
 principal mapping
 - only consider the risk of repayment of principal amounts
 - consider the average maturity, then use zero-coupon bond that equals the average maturity
@@ -166,7 +169,7 @@ cash flow mapping
 - undiverified VaR = sum over discounted CFi*VaRi    - the VaR if perfectly correlated
 - diversified VaR = sqrt((x*V)R(x*V))
   where x - pv of cf, V - VaR of zero-coupon bond returns, R - correlation matrix
-- VaR(Prn) > VaR(duration) > VaR(diversified)
+- VaR(Prn) > VaR(duration) > VaR(undiversified) > VaR(diversified)
  
 3. risk category
 - general (primitive) risk factors
