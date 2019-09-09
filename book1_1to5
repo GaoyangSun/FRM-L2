@@ -47,6 +47,9 @@ standard error of the quantile q: se(q) = sqrt(p(1-p)/n)/f(q)
 90% C.I.  -- 1.65. with bin width 0.1 -- q in [1.6, 1,7]
 where prob mass f(q) = 1 - prob(L<1.6) - prob(L>1.7) = 1 - 0.045 - 0.945 = 0.01 
 
+6. QQ plot
+for IDENTIFYING an empirical distribution from a theoretical distribution
+
 
 ## ---------------------------------------------------------------------------------------
 READING 2: NON-PARAMETRIC APPROACHES
@@ -161,7 +164,7 @@ VaR_bond = Duration * VaR_interestRate
 
 principal mapping
 - only consider the risk of repayment of principal amounts
-- consider the average maturity, then use zero-coupon bond that equals the average maturity
+- consider the AVERAGE maturity, then use zero-coupon bond that equals the average maturity
 duration mapping
 - mapped to a zero-coupon bond of the same duration
 cash flow mapping
@@ -180,6 +183,7 @@ cash flow mapping
 
 5. benchmarking a portfolio
 tracking error VaR: the difference between the VaR of the target portfolio and the benchmark portfolio
+the tracking error VaR is smallest for portfolios most closely matched based on cash flows
 
 6. mapping Linear Derivatives
 - currency forward contract 
