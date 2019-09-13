@@ -1,0 +1,130 @@
+READING 64: factor theory
+1. principles
+- factor, rather than assets, are important
+- assets represent bundles of factors
+- investors have differing optimal risk exposures
+
+2. lessons from CAPM
+[1] hold the factor, not the individual asset
+- mean-variance efficient portfolio maximize Sharpe ratio, the combo of MVE and risk-free asset depends on risk aversion
+- equilibrium, demand for an asset equals the supply
+[2] investors have their own optimal factor risk exposures
+[3] the average investor is fully invested in the market
+- an investor with an average risk aversion would hold 100% MVE portfolio
+[4] exposure to factor risk must be rewarded
+- E(Rm) - Rf = riskAver*Var_m
+- the more volatile the market, AND the more risk aversed the investor, the higher the risk premiums should be
+[5] risk is measured as beta exposure
+- SML - E(Ri) - rf = (cov(Ri, Rm)/var(Rm))*(E(Rm) - rf)
+[6] valuable assets have low risk premiums
+
+3. limited assumptions of CAPM
+[1] investors only have financial wealth   - human capital
+[2] investors have mean-variance   - skewness, kurtosis
+[3] investors hvae a single period investment horizon
+[4] investors have homogeneous expectations
+[5] markets are frictionless
+[6] all investors are price takers
+[7] information is free and available to everyone
+
+4. multifactor models
+- APT, arbitrage pricing theory, deduced from stochastic discount factor(SDF)
+
+5. efficient market theory
+near-efficient
+- active managers search for pockets of inefficiency, and in doing so cause the market to be almost efficient.
+rational explanation approach
+- losses during bad times are compensated by high returns/ but what are bad times?
+behavioral explanation approach
+- it is agents' (over/under) reactions to news that generates high returns
+
+READING 65: factor
+1. Macroeconomic Factors
+[1] economic growth
+in recession, government (and investment-grade) bonds are best (even better than that in expansion), albeit more volatile
+high-yield bond are indifferent to economic conditions
+[2] inflation
+bad for both stock and bond.
+not that bad for commodities and real estate
+[3] volatility
+- leverage effect 
+cor(volatility, realized return) < 0
+cor(volatility, expected return) > 0
+price up - equity up - leverage down - risk down
+risk down - lower expected return from CAPM - lower discount rate - higher price 
+(expected return goes down, realized return goes up)
+- unnamed effect
+VIX increases when stock market goes down
+[4] other factors
+- productivity shock
+- demographic risk
+- political risk
+
+2. investment style
+- static (passive)
+market factor Rm - rf
+- dynamic (active)
+[1] SMB   
+- size strategy: small cap - large cap
+[2] HML
+- value strategy: value (high b2m) - growth (low b2m)
+[3] WML
+- momentum strategy: winner - loser
+
+READING 66: alpha
+1. low-risk anomaly
+- firms with lower betas and lower volatility have higher returns over time
+- Data evidence
+  [1] cor(var(t-1), r(t))<0, cor(var(t), r(t))<0
+   most volatile stocks that currently lose money will continue to lose money in the future
+  [2] cor(beta(t-1), r(t))=0, cor(beta(t), r(t))>0
+
+2. measurements
+alpha = T mavg excess_return
+tracking error = standard deviation of excess return
+information ratio = alpha/tracking error
+sharpe ratio = (r - rf)/standard deviation of return 
+
+3. benchmark
+- well-defined
+- tradeable
+- replicable
+- adjusted for risk
+
+4. fundamental law of active management
+IR = IC * sqrt(BR)
+where IC - info coef - cor(predicted value, actual value)
+      BR - breadth - # investments deployed
+      
+5. factor regression
+style analysis: a form of factor benchmarking where the factor exposures evolve over time
+
+6. alphas for nonlinear strategies
+tradeable - Var_m: VIX,  max{s-x,0}: call option
+
+7. risk anomaly explanations
+[1] data mining
+[2] leverage constraints - cannot borrow money and instead to long beta
+[3] agency problem - institutional managers cannot short sell
+[4] preferences
+
+READING 67: illiquid assets
+1. characteristics of illiquid markets
+[1] most assets are illiquid, at least to some degree
+[2] markets for illiquid assets are large
+[3] illiquid assets comprise the bulk of most investors' portfolios
+[4] liquidity can dry up even in liquid asset markets
+
+2. market imperfections
+- market participation costs
+- transactions costs
+- search frictions (hard to find a counterparty)
+- asymmetric information
+- price impacts
+- funding constraints
+
+3. biases
+- survivorship bias
+- (sample) selection bias
+- infrequent trading - result in lower volatility, beta, correlation, higher autocorrelation
+
