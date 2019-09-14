@@ -38,6 +38,7 @@ rational explanation approach
 behavioral explanation approach
 - it is agents' (over/under) reactions to news that generates high returns
 
+## ---------------------------------------------------------------------------------------
 READING 65: factor
 1. Macroeconomic Factors
 [1] economic growth
@@ -71,6 +72,7 @@ market factor Rm - rf
 [3] WML
 - momentum strategy: winner - loser
 
+## ---------------------------------------------------------------------------------------
 READING 66: alpha
 1. low-risk anomaly
 - firms with lower betas and lower volatility have higher returns over time
@@ -108,6 +110,7 @@ tradeable - Var_m: VIX,  max{s-x,0}: call option
 [3] agency problem - institutional managers cannot short sell
 [4] preferences
 
+## ---------------------------------------------------------------------------------------
 READING 67: illiquid assets
 1. characteristics of illiquid markets
 [1] most assets are illiquid, at least to some degree
@@ -123,8 +126,121 @@ READING 67: illiquid assets
 - price impacts
 - funding constraints
 
-3. biases
+3. returns are overstated because of biases like:
 - survivorship bias
+  [1] poorly performing funds may not reoirt
+  [2] studies only include survived funds
 - (sample) selection bias
+  [1] real estate are often sold where prices are high
+  [2] buyout funds take company public when values are high/ VC sell companies when values are high
 - infrequent trading - result in lower volatility, beta, correlation, higher autocorrelation
+
+4. collect illiquidity risk premiums
+[1] holding passive allocations to illiquid asset classes
+- illiquidity biases
+- ignored risk (fraud risk)
+- no market index
+- always a bet on management skill
+[2] holding less liquid securities within asset classes
+- on-the-run > off-the-run
+- small > large bid-ask spread
+- small > large bid-ask spread, large > small volume/turnover 
+- larger risk premiums exist within asset classes than across because
+  constraint on switching capital/investor overpay(because of limited knowledge)/illiquidity-shy investor overpay 
+[3] market making at the individual security level
+[4] dynamic rebalancing at the aggregate level (simplest and most affective on portfolio returns)
+
+## ---------------------------------------------------------------------------------------
+READING 68: portfolio construction
+1. inputs
+[1] current portfolio
+[2] alphas ~ both the investor and manager constraints are considered
+- scaling
+  alpha = sigma * IC * score
+  where sigma - tracking error, score - standard normal distribution
+  so alpha ~ N(0,squred(IC*sigma)), and compare to actual volatility of alphas, and scale
+- triming
+- neutralization
+  set alpha of benchmark to be 0
+  alpha_Rp = 5%, alpha_benchmark = 1%, beta_Rp = 1.5
+  benchmark-neutral alpha = alpha_Rp - beta_Rp*alpha_benchmark = 5% - 1.5*1% = 3.5%
+[3] covariances
+[4] transaction costs
+- transaction costs must be amorized over the horizon of the benefit from the trade
+- benefits (increase in alpha) occur over time, transaction costs occur @ specific time
+[5] active risk aversion (lambd)
+- utility = alpha - lambd*trackingError**2
+  lamdb = IR/2*trackingError
+
+2. techniques
+portfolio alpha - riskAver*active risk**2 - transaction costs
+[1] screen
+- rank stocks by alpha/ choose top stocks/ average weighting
+- pro: enhances returns/diversification/robust
+- con: only use input alpha/ excluding certain industry with low alpha
+[2] stratification
+- rank stocks by alpha, industry/ ...
+- no transaction costs
+[3] linear programming
+- rank stocks by alpha, industry, size, volatiliy, beta.../ ...
+- pro: create a portfolio that closely resembles the benchmark
+- con: may not have enough pre-specified stocks
+[4] quadratic programming
+- consider all the inputs
+- con: more inputs mean more noise
+
+3. porfolio reversions (rebalancing)
+- no-trade region: benefit < transaction costs
+marginal contribution to the value added = alpha - 2*riskAver*activeRisk*marginal contribution to the active risk 
+so no-trade region: - cost of selling < marginal contribution to value added < cost of purchase
+   when you buy, you get alpha and add more risk and pay purchase cost
+           sell, you lose alpha and reduce risk and pay selling cost
+rearranging (plus 2*riskAver*marginal contribution to active risk on all side):
+2*riskAver*marginal contribution to active risk - cost of selling < alpha < 
+2*riskAver*marginal contribution to active risk + cost of purchase
+- the manager should assign a tracking portfolio weight equal to zeros for stocks
+  which there is a forecast but that are not in the benchmark
+
+## ---------------------------------------------------------------------------------------
+READING 69: portfolio risk: analytical methods
+1. portfolio VaR
+- VaR_p = Z*sigma_p*V
+  sigma_p = sqrt((w1*sigma1)^2 + (w2*sigma2)^2 + 2*w1*w2*sigma1*sigma2*cor(1,2))
+- VaR_p = sqrt(VaR_1^2 + VaR_2^2 + 2*VaR_1*VaR_2*cor(1,2))
+- if equally weighted/identical sigma/identical correlation
+  sigma_p = sigma*sqrt(1/N + (1-1/N)*cor)
+- individual VaR - VaR of an individual position in isolation
+  VaR_i = Z*sigma_i*V_i
+  
+2. marginal VaR
+per unit change in a portfolio VaR / additional investment in a position
+MVaRi = d_VaR_p/d_V_i
+      = d_(Z*sigma_p*V_p)/d_(w_i*V_p)
+      = Z*(d_sigma_p/d_w_i)
+      = Z*(cov(R_i, R_p)/sigma_p)     and because beta_i = cov(R_i, R_p)/sigma_p^2
+      = (VaR_p/V_p) * beta_i
+
+3. incremental VaR
+change in portfolio VaR / additonal new postion
+incremental VaR = VaR_p+i - VaR_p
+                = MVaR_i * w_i
+
+4. component VaR
+contribution of risk from a to a portoflio
+CVaR_i = MVaR_i * V_i
+CVaR_i/VaR_p = ((VaR_p/V_p)*beta_i)*V_i/VaR_p
+             = w_i*beta_i
+             
+5. risk parity
+all component make the same risk contribution
+CVaR1 = CVaR2 = ...
+
+6. global minimun
+minimize portfolio risk
+MVaR1 = MVaR2 = ...
+or minimize sigma_p
+
+7. risk budget
+maximize portfolio sharpe ratio
+(R1 - rf)/MVaR1 = (R2 - rf)/MVaR2 = ...
 
