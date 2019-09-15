@@ -240,7 +240,91 @@ minimize portfolio risk
 MVaR1 = MVaR2 = ...
 or minimize sigma_p
 
-7. risk budget
+7. risk budget (across portfolios)
 maximize portfolio sharpe ratio
 (R1 - rf)/MVaR1 = (R2 - rf)/MVaR2 = ...
 
+
+## ---------------------------------------------------------------------------------------
+READING 70: VaR and risk budgeting in investment management
+1. investment process
+[1] determine the long-term, strategic asset allocations
+    usually based on methods like mean-var optimization
+[2] choose the passive and active managers
+
+2. risks
+- absolute/asset risk
+  total possible losses = policy mix risk + active management risk
+  R_asset = R_policyMix + R_activeMgt
+          = sumOver(w_i_benchmark*r_i_benchmark) + sumOver(w_i_actual*r_i_actual - w_i_benchmark*r_i_benchmark)
+  VaR_p = (VaR_policyMix^2 + VaR_activeMgt^2 + 2*VaR_policyMix*VaR_activeMgt*cor(policyMix,activeMgt)
+- policy mix risk (various benchmarks risk)
+  dollar loss owing to the policy mix selected by the fund
+- avtive management risk
+  dollar loss owing to the deviations from the policy mix
+- relative risk
+  dollar loss relative to a benchmark
+  trackingError = R_p - R_b
+  trackingErrorVolatility = (sigma_p^2 - 2*cor(p,b)*sigma_p*sigma_b + sigma_b^2)^0.5
+
+3. funding risk (not literally)
+the risk that the value of asset would be enought to cover the liabilities
+- surplus = assets - liabilities
+- delta_surplus = delta_assets - delta_liabilities
+- R_surplus = delta_surplus/assets
+            = delta_assets/assets - (delta_liab/liab)*(liab/assets)
+            = R_asset - R_liab*(liab/assets)
+- surplus at risk (SaR)  which is VaR of surplus
+  expected surplus = A*(1+R_A) - L*(1+L_A) 
+  sigma_surplus = ((A*sigma_A)^2 + (L*sigma_L)^2 - 2*sigma_A*sigma_L*cor(A,L))^0.5
+  surplus at risk = expected surplus - Z*sigma_surplus
+            
+4. plan sponsor(owner) risk
+- economic risk
+  variation in the total economic earnings of the plan sponsor
+- cash flow risk (surplus<0)
+  variation of the contribution to the fund
+  
+5. why dramatic changes in risk
+- a manager taking on more risk
+- different managers taking similar bets
+- more volatile markets
+
+6. managers evaluation
+- information ratio
+  IR_i = expected excess return/manager's tracking error
+  IR_p = expected excess return/portfolio's tracking error
+- weight of portfolio managed by manager i
+  w_i = (IR_i/IR_p) / (TE_i/TE_p)
+      = (IR_I * TE_P) / (IR_P * TE_i)
+      
+## ---------------------------------------------------------------------------------------
+READING 71: risk monitoring and performance measurement
+1. risk planing
+[1] setting expected return and volatility goals
+[2] define quantitative measures of success or failure
+[3] how risk capital will be used to meet object   -  RORC  return on risk capital
+[4] define the difference between events that cause ordinary damage v. serious damage
+[5] identify mission critical resources inside and outside
+
+2. risk budgeting
+across asset class/ managers/ portfolios
+quantitative methods:
+- set the min acceptable levels of RORC and ROE 
+- apply mean-variance optimization to determine the weights for each asset classes
+- simulate the portfolio performance based on the weights
+
+3. risk monitoring
+to seek and investigate any signifincant variances from budget
+
+4. risk management unit
+- monitors an investment management entity's portfolio risk exposures and 
+  ascertains that the exposures are authorized and consistent with risk budgets previously set
+
+5. liquidity duration
+- the number of days necessary to dispose a portfolio;s holdings without a significant market impact
+- LD = Q/(0.10*V)
+  where LD - liquidity duration assuming that the desired max daily vol of any security is 10%
+        Q - number of shares of the security
+        V - daily vol of the security
+        
