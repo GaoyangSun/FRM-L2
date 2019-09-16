@@ -328,3 +328,30 @@ to seek and investigate any signifincant variances from budget
         Q - number of shares of the security
         V - daily vol of the security
         
+## ---------------------------------------------------------------------------------------
+READING 72: portfolio performance evaluation
+1. time/dollar-weighted return
+dollar-weighted return: IRR on a portfolio, taking into account all cash flows
+time-weighted return: geometric mean of the measurement period return
+
+2. the green zone
+- calculate normalized return and tracking error
+- compare actual to target
+green to yellow to red
+
+3. ratios
+sharpe ratio = (R_i - rf)/sigma_i  - total risk
+treynor ratio = (R_i - rf)/beta_i  - systematic risk
+info ratio = (R_i-r_bench)/sigma_(i-bench) - unsystematic risk
+SR_i^2 - SR_bench^2 = IR_i^2
+M^2 = (SR_i - SR_mkt)*sigma_mkt
+T^2 = (TR_i - TR_mkt)*beta_mkt = TR_i - (Rm-Rf) - Treynor ratio - mkt risk premium
+
+excess return = R_p - R_bench
+alpha (by regression)  Rp - rf = alpha - beta*(Rm - rf) + error
+
+4. significance of alpha
+H0: alpha = 0 Ha: alpha<>0
+t = alpha/(sigma_alpha/sqrt(N))
+
+Jensen's alpha (acutal return - theortical return by capm or apt) = R_p - (rf + beta*(Rm - rf))
