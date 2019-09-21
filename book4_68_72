@@ -1,0 +1,225 @@
+READING 68: portfolio construction
+1. inputs
+[1] current portfolio
+[2] alphas ~ both the investor and manager constraints are considered
+- scaling
+  alpha = sigma * IC * score
+  where sigma - tracking error, score - standard normal distribution
+  so alpha ~ N(0,squred(IC*sigma)), and compare to actual volatility of alphas, and scale
+- triming
+- neutralization
+  set alpha of benchmark to be 0
+  alpha_Rp = 5%, alpha_benchmark = 1%, beta_Rp = 1.5
+  benchmark-neutral alpha = alpha_Rp - beta_Rp*alpha_benchmark = 5% - 1.5*1% = 3.5%
+[3] covariances
+[4] transaction costs
+- transaction costs must be amorized over the horizon of the benefit from the trade
+- benefits (increase in alpha) occur over time, transaction costs occur @ specific time
+[5] active risk aversion (lambd)
+- utility = alpha - lambd*trackingError**2
+  lamdb = IR/2*trackingError
+
+2. techniques
+portfolio alpha - riskAver*active risk**2 - transaction costs
+[1] screen
+- rank stocks by alpha/ choose top stocks/ average weighting
+- pro: enhances returns/diversification/robust
+- con: only use input alpha/ excluding certain industry with low alpha
+[2] stratification
+- rank stocks by alpha, industry/ ...
+- no transaction costs
+[3] linear programming
+- rank stocks by alpha, industry, size, volatiliy, beta.../ ...
+- pro: create a portfolio that closely resembles the benchmark
+- con: may not have enough pre-specified stocks
+[4] quadratic programming
+- consider all the inputs
+- con: more inputs mean more noise
+
+3. porfolio reversions (rebalancing)
+- no-trade region: benefit < transaction costs
+marginal contribution to the value added = alpha - 2*riskAver*activeRisk*marginal contribution to the active risk 
+so no-trade region: - cost of selling < marginal contribution to value added < cost of purchase
+   when you buy, you get alpha and add more risk and pay purchase cost
+           sell, you lose alpha and reduce risk and pay selling cost
+rearranging (plus 2*riskAver*marginal contribution to active risk on all side):
+2*riskAver*marginal contribution to active risk - cost of selling < alpha < 
+2*riskAver*marginal contribution to active risk + cost of purchase
+- the manager should assign a tracking portfolio weight equal to zeros for stocks
+  which there is a forecast but that are not in the benchmark
+
+## ---------------------------------------------------------------------------------------
+READING 69: portfolio risk: analytical methods
+1. portfolio VaR
+- VaR_p = Z*sigma_p*V
+  sigma_p = sqrt((w1*sigma1)^2 + (w2*sigma2)^2 + 2*w1*w2*sigma1*sigma2*cor(1,2))
+- VaR_p = sqrt(VaR_1^2 + VaR_2^2 + 2*VaR_1*VaR_2*cor(1,2))
+- if equally weighted/identical sigma/identical correlation
+  sigma_p = sigma*sqrt(1/N + (1-1/N)*cor)
+- individual VaR - VaR of an individual position in isolation
+  VaR_i = Z*sigma_i*V_i
+  
+2. marginal VaR
+per unit change in a portfolio VaR / additional investment in a position
+MVaRi = d_VaR_p/d_V_i
+      = d_(Z*sigma_p*V_p)/d_(w_i*V_p)
+      = Z*(d_sigma_p/d_w_i)
+      = Z*(cov(R_i, R_p)/sigma_p)     and because beta_i = cov(R_i, R_p)/sigma_p^2
+      = (VaR_p/V_p) * beta_i
+
+3. incremental VaR
+change in portfolio VaR / additonal new postion
+incremental VaR = VaR_p+i - VaR_p
+                = MVaR_i * w_i
+
+4. component VaR
+contribution of risk from a to a portoflio
+CVaR_i = MVaR_i * V_i
+CVaR_i/VaR_p = ((VaR_p/V_p)*beta_i)*V_i/VaR_p
+             = w_i*beta_i
+             
+5. risk parity
+all component make the same risk contribution
+CVaR1 = CVaR2 = ...
+
+6. global minimun
+minimize portfolio risk
+MVaR1 = MVaR2 = ...
+or minimize sigma_p
+
+7. risk budget (across portfolios)
+maximize portfolio sharpe ratio
+(R1 - rf)/MVaR1 = (R2 - rf)/MVaR2 = ...
+
+
+## ---------------------------------------------------------------------------------------
+READING 70: VaR and risk budgeting in investment management
+1. investment process
+[1] determine the long-term, strategic asset allocations
+    usually based on methods like mean-var optimization
+[2] choose the passive and active managers
+
+2. risks
+- absolute/asset risk
+  total possible losses = policy mix risk + active management risk
+  R_asset = R_policyMix + R_activeMgt
+          = sumOver(w_i_benchmark*r_i_benchmark) + sumOver(w_i_actual*r_i_actual - w_i_benchmark*r_i_benchmark)
+  VaR_p = (VaR_policyMix^2 + VaR_activeMgt^2 + 2*VaR_policyMix*VaR_activeMgt*cor(policyMix,activeMgt)
+- policy mix risk (various benchmarks risk)
+  dollar loss owing to the policy mix selected by the fund
+- avtive management risk
+  dollar loss owing to the deviations from the policy mix
+- relative risk
+  dollar loss relative to a benchmark
+  trackingError = R_p - R_b
+  trackingErrorVolatility = (sigma_p^2 - 2*cor(p,b)*sigma_p*sigma_b + sigma_b^2)^0.5
+
+3. funding risk (not literally)
+the risk that the value of asset would be enought to cover the liabilities
+- surplus = assets - liabilities
+- delta_surplus = delta_assets - delta_liabilities
+- R_surplus = delta_surplus/assets
+            = delta_assets/assets - (delta_liab/liab)*(liab/assets)
+            = R_asset - R_liab*(liab/assets)
+- surplus at risk (SaR)  which is VaR of surplus
+  expected surplus = A*(1+R_A) - L*(1+L_A) 
+  sigma_surplus = ((A*sigma_A)^2 + (L*sigma_L)^2 - 2*sigma_A*sigma_L*cor(A,L))^0.5
+  surplus at risk = expected surplus - Z*sigma_surplus
+            
+4. plan sponsor(owner) risk
+- economic risk
+  variation in the total economic earnings of the plan sponsor
+- cash flow risk (surplus<0)
+  variation of the contribution to the fund
+  
+5. why dramatic changes in risk
+- a manager taking on more risk
+- different managers taking similar bets
+- more volatile markets
+
+6. managers evaluation
+- information ratio
+  IR_i = expected excess return/manager's tracking error
+  IR_p = expected excess return/portfolio's tracking error
+- weight of portfolio managed by manager i
+  w_i = (IR_i/IR_p) / (TE_i/TE_p)
+      = (IR_I * TE_P) / (IR_P * TE_i)
+      
+## ---------------------------------------------------------------------------------------
+READING 71: risk monitoring and performance measurement
+1. risk planing
+[1] setting expected return and volatility goals
+[2] define quantitative measures of success or failure
+[3] how risk capital will be used to meet object   -  RORC  return on risk capital
+[4] define the difference between events that cause ordinary damage v. serious damage
+[5] identify mission critical resources inside and outside
+
+2. risk budgeting
+across asset class/ managers/ portfolios
+quantitative methods:
+- set the min acceptable levels of RORC and ROE 
+- apply mean-variance optimization to determine the weights for each asset classes
+- simulate the portfolio performance based on the weights
+
+3. risk monitoring
+to seek and investigate any signifincant variances from budget
+
+4. risk management unit
+- monitors an investment management entity's portfolio risk exposures and 
+  ascertains that the exposures are authorized and consistent with risk budgets previously set
+
+5. liquidity duration
+- the number of days necessary to dispose a portfolio;s holdings without a significant market impact
+- LD = Q/(0.10*V)
+  where LD - liquidity duration assuming that the desired max daily vol of any security is 10%
+        Q - number of shares of the security
+        V - daily vol of the security
+        
+## ---------------------------------------------------------------------------------------
+READING 72: portfolio performance evaluation
+1. time/dollar-weighted return
+dollar-weighted return: IRR on a portfolio, taking into account all cash flows
+time-weighted return: geometric mean of the measurement period return
+
+2. the green zone
+- calculate normalized return and tracking error
+- compare actual to target
+green to yellow to red
+
+3. ratios
+sharpe ratio = (R_i - rf)/sigma_i  - total risk
+treynor ratio = (R_i - rf)/beta_i  - systematic risk
+info ratio = (R_i-r_bench)/sigma_(i-bench) - unsystematic risk
+SR_i^2 - SR_bench^2 = IR_i^2
+M^2 = (SR_i - SR_mkt)*sigma_mkt
+T^2 = (TR_i - TR_mkt)*beta_mkt = TR_i - (Rm-Rf) - Treynor ratio - mkt risk premium
+
+excess return = R_p - R_bench
+alpha (by regression)  Rp - rf = alpha - beta*(Rm - rf) + error
+
+4. significance of alpha
+H0: alpha = 0 Ha: alpha<>0
+t = alpha/(sigma_alpha/sqrt(N))
+Jensen's alpha (acutal return - theortical return by capm or apt) = R_p - (rf + beta*(Rm - rf))
+
+5. market timing (indifferent to asset allocation)
+- here the timing refers to jugde a bull or a bear market, not individual stock
+- method 1
+R_p - rf = alpha + beta(R_m - rf) + M_p(R_m - rf)D + epslion_p
+where D - 1 if up_market 0 if down_market
+      M_p - up_market beta - down_market beta
+- method 2
+given perfect timing ability, you should get return of max(rm,rf)
+as you can predict it is a bull or bear market
+therefore, the price of timing ability should equal to call option whose X is (1+rf)
+
+6. style analysis
+step 1 - regress portfolio return against passive benchmarks (to get sensitivity b)
+  R_p = b1*R_b1 + b2*R_b2 + ... + epslion
+step 2 - performance attribution
+  [1] asset allocation attribution (R-squared - explained part)
+  b1*R_b1 + b2*R_b2 + ...  -  R_b
+  [2] selection attribution (1 - R-squared - unexplained part)
+  R_p - [b1*R_b1 + b2*R_b2 + ...]
+step 3 - regression slopes (sensitivity) are used to infer the investment style
+  
