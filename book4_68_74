@@ -223,3 +223,50 @@ step 2 - performance attribution
   R_p - [b1*R_b1 + b2*R_b2 + ...]
 step 3 - regression slopes (sensitivity) are used to infer the investment style
   
+## ---------------------------------------------------------------------------------------
+READING 73: Hedge Funds
+1. characteristics
+- private, less-regulated, highly leveraged, likely to short and use derivative
+- while mutual funds are more structured and regulated
+
+2. evoluation
+1987-1996: easily outperform s&p500
+1998: LTCM went down - which reduce investors' appetite for hedge funds
+2000-: rapid expansion, institutions' appetite improved
+
+3. biases
+subject to surviorship/self-selection/backfill biases
+backfill biases - creates instant history
+
+4. strategies
+[1] directional followers
+- managed futures
+- global macro
+[2] event-driven 
+- risk(merger) arbitrage - mainly deal risk
+- distressed securities - similar returns with high-yield bond
+[3] aribitarge - win most of time, lose huge rarely - payoff negative skewness
+- fixed income
+  swap spread trade: fixed side of the spread will be higher than floating side
+  yield-curve spread trade: bond prices will deviate from overall yield curve, and will revert over time
+  fixed income volatility trade: implied volatility of interest rates caps will be higher than relized
+  captial structure/credit aribitrage trade: capitalize on mispricing among different types of securities
+- convertible
+  long convertible, short stock - long call option - net long gamma and vega
+- long-short equity
+[4] niche
+- dedicated short bias
+- emerging market
+- equity market neutral (beta=0)
+
+## ---------------------------------------------------------------------------------------
+READING 74: Due diligence
+1. past fund failures
+poor investment decision/fraud/extreme events/excess leverage
+lack of liquidity/poor controls/insufficient questioning/insufficient attention to returns
+
+2. manager evaluation
+- strategy/ ownership/ track record/ investment management
+
+3. risk management evaluation
+- risk/ security valuation/ portfolio leverage and liquidity/ exposure to tail risk/
