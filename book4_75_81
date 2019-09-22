@@ -1,0 +1,186 @@
+READING 75: cyber risk, market failures, and financial stability
+1. reasons that the private market may fail to provide cyber security
+- information asymmetries
+  lack info about probaility of attack/potential damage/effectiveness of existing cyber security
+- misaligned incentives
+  successful attacks may cost reputation/ may underspedn on cybersecurity if have insurance
+- externalities and coordination failures
+  free-rider
+- risk concentration
+  same software(e.g. oracle) for financial services firm
+  
+2. systematic cyber risk
+- common risk exposures
+  common networks and platforms
+- risk concentration
+  a few financial institutions handle a high proportion of certain financial transactions
+- contagion
+  attack on one may affect others
+  
+3. increase resiliency to cyber risk
+- basic measures for firms to increase
+  whitelisting of all installed software/use of standardized secure system
+  having procedures to patch vulnerabilities/limiting the number of people with access
+- actions by regulators
+  standardizing the reporting procedures
+  create good incentives to report, and requiring them to report
+  coordinating with other regulators by information sharing
+  
+## ---------------------------------------------------------------------------------------
+READING 76: big data
+1. issues with large dataset
+- requires more advanced tools than spreadsheet
+- overfitting
+- active variable selection can help to mitigate spurious correlations and overfitting
+  
+2. tools
+- logit regression
+- CART
+- k-fold cross-validation
+- conditional inference tree(ctree) does not require pruning/just one tree
+  1. choose the most correlated independent variable with dependent variable
+  2. split the variable into two dataset
+  3. repeat until you have isolated vairables into unique components
+- random forest - random (bootstrapped) sample and variables / no pruning
+- penalized regression - LASSO
+
+3. econometrics and machine learning
+- machine learning focus mainly on cross-sectional data, 
+  while econometrics can use Bayesian Structural Times Series models to forecast time series data
+- causal inference
+  
+## ---------------------------------------------------------------------------------------
+READING 77: machine learning
+1. concepts
+- supervised/unsupervised maching learning
+- regression/calssification/clustering
+- overfitting/boosting/bagging/deep learning
+
+2. applications
+- financial institutions should use conventional maching learning for high-quality, structured supervisory data
+  while deep learning should be used for low-quality, high-frequency, big data
+- credict risk and revenue modeling
+- fraud
+- surveillance of conduct of market abuse in trading
+
+## ---------------------------------------------------------------------------------------
+READING 78: AI
+1. factors that have spurred adoption of AI
+supply
+- increasing computing power
+- increasing availability of big data
+- sophisticated new software
+- decreased cost of data storage
+
+demand
+- decreased cost for fintech sulitions
+- benefits for risk management
+- ability to offer new product
+- fraud protection
+- data reporting requirement
+
+2. applications
+- customer-focused uses
+  credit quality/ insurance risks/ virtual assistants
+- operation-focused uses
+  optimize capital allocation/ improve risk management
+- trading and portfolio management
+  assess the market impact/time trades to minimize execution costs/ analyze limit order book
+  predict changes in prices and volatilities
+- regulatory compliance (regtech)
+  NLP to improve oversight and address product suitability/ evaluate impact of monetary policy
+  identify violations of marketing rules
+
+3. impacts
+may lead to additional risks (if you dont understand how AI works)
+may lead to correlated risks due to concentration
+
+## ---------------------------------------------------------------------------------------
+READING 79: fintech
+1. impact on operations management
+- depersonalize client interactions (customized services instead of standardized)
+- enchance access to on-demand services
+- reduce customer acquisition costs
+
+2. impact on lending and deposit services
+- automate the credit scoring and loan approval
+- alter the deposit-reliance and spread capture
+
+3. impact on payment services
+delayed net settlement(DNS) - settle the net amount and could take days
+real-time gross settlement(RTGS) - transfer the fund on an immediate basis, may be a lag
+blockchain - the validation process is not fast enough to support algo and high-frequency trading
+
+4. impact on financial markets
+- from physical trading locations to electronic trading platforms
+  which was enbaled by the use of centralized limit order books where all open limit orders are aggregated before filled
+- HFT and robo-advising
+- increased volatility during duress
+
+## ---------------------------------------------------------------------------------------
+READING 80: central clearinig and risk transformation
+1. central counterparties(CCP) to clear over-the-counter(OTC) 
+- eliminate counterparty risk, then no default risk
+- with the advantages of 
+  halting a potential domino effect of defaults in downturn/more clarity with the need for collateral
+  lower operational risk/better price discovery/regulatory transparent/better risk management
+  
+2. impact of central clearing
+- enhance financial stability and reduced systematic risk
+- liquid refers to total liquid asset > total short-term liability
+- solvent refers to total asset > total liability
+
+3. counterparty risk to liquidity risk
+- with bilateral OTC, no margin requirements/mark2market/impact on solvency but not liquidity
+- with CCP, prepaid margin/settled on a cash and daily basis/no solvency impact but liquidity because of the reclassification
+  because default fund contributions are subject to 2% capital charge so there is an impact on member's balance sheet
+
+4. ccp loss sequence
+- intial margin
+- default contribution of defaulting member
+- mutailization of large losses
+- recovery
+- failure resolution
+- to conclude, liquidity risk is most relevant to ccp when absorbing losses
+
+5. margin requirement and liquidation costs
+- impose heavy liquidity demands on non-defualted members in weak market,
+  which may cause them to default
+- 2 methods to cope
+  [1] default fund assessment
+  ask all non-defaulted members for a supplementary contribution proportional to prior contribution
+  [2] variation margin haircuts (VMGH)
+  collects the full variation margin payment from the members with losses,
+  discounts the payments the members with gains
+
+## ---------------------------------------------------------------------------------------
+READING 81: SOFR
+- secured overnight financing rate
+1. resources to derive SOFR
+[1] BNY Mekkon tri-party GC - tri-party treasury general collateral(GC) repo transactions 
+                              settled and cleared by the Bank of New York Mellon (BNY Mellon)
+[2] FICC GCF - tri-party GC repo transactions made through Fixed Income Clearing Corporation (FICC)
+               General Collateral Finance (GCF) market
+[3] FICC DVP bilateral - bilateral repo transactions that are cleared through the FICC's
+                         delibery versus payment (DVP) services
+these rates are weighted by transaction volume,
+the median transaction-weighted rate is used as the day's SOFR
+
+2. futures
+one-month SOFR 
+- average SOFR during the contract delivery month
+- price basis - 100 - annual interest rate
+- contract size $41.67 per basis point
+three-month SOFR
+- compounding of daily SOFR during the contract interval
+- price basis - 100 - annual interest rate
+- contract size $25 per basis point
+
+
+
+
+
+
+
+
+
