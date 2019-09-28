@@ -79,4 +79,122 @@ READING 17: the credit analyst
 - secondary research skill
   use research published
   
+## ---------------------------------------------------------------------------------------
+READING 18: classifications of credit risk
+1. credit ratings are critical in ensuring
+- borrowers can access capital market
+- the various risks of value creation are appropriately managed
+- the economic performance of business units can be compared
+
+2. classification
+- default(counterparty) risk
+  measured by PD, which can be approached by 
+  [1] analyze historical default frequencies
+  [2] statistical [3] hybird approach combining quant and qual approach
+  [4] extract implicit default probailities
+- recovery risk
+  measured by LGD, which depends on
+  [1] type of credit contracts [2] general economic conditions [3] covenants
+- exposure risk
+  measured by EAD, calculated by 
+  EAD = drawn amount + (limit - drawn amount) * LEQ
+  where drawn amount = amount of the credit facility currently used
+               limit = max amount granted by a bank to the borrower
+                 LEQ = loan equivalency factor
+                 
+3. measurement
+- EL = PD * LGD * EAD = PD * (1-Recovery rate) * EAD
+- Unexpected Loss = credit VaR = WCL(worst case loss) - EL
+- EL not affected by correlation, UL affected by correlation
+- loss distribution and VaR measures can be done by
+  [1] adopting a parametric method
+  [2] numerical simulations
+  [3] discrete probability solutions
+- VaR and EL do not factor in portfolio concentration because of diversification
+  so concentration risk should be noted, as VaR does not account for that
+  default codependence can be modeled by 
+  [1] asset value correlations
+      consider the debt outstanding between two borrowers and look at the correlation among asset values
+  [2] default correlations
+      historical correlations 
+- unexpected loss contribution
+  ULC_i = (d_UL_portfolio/d_w_i)*W_i
+        = correlation(i, portoflio) * W_i * UL_portfolio
+  beta_i = (ULC_i/W_i)*UL_portfolio
   
+4. risk-adjusted pricing
+- risk-based pricing policy is important for 
+  active portfolio management/ integrating credit, market and operational risk into risk budgeting
+  setting management objective
+- risk-adjusted return on capital (RAROC)/risk-adjusted reutrn on risk-adjusted capital (RARORAC)
+  both used to assess whether returns generated > market risk premium
+  add value if RARORAC > ROE_target
+- economic value added
+  EVA = (RARORAC - cost of capital) * economic capital
+- RARORAC = (spread + fees - EL - cost of capital - cost of opearions)/economic
+
+5. credit VaR vs. market VaR
+- market VaR
+  symmetric distribution/99% VaR/daily horizon
+- credit VaR
+  asymmetric distribution(skewed to the left)/99.9% VaR/yearly horizon
+
+6. portfolio with two asset
+- correlation = (PD_12 - PD_1*PD_2)/sqrt(PD_1*(1-PD_1))*sqrt(PD_2*(1-PD_2))
+  if correlation = 0, then independent
+- correlation = 1
+  consider them as one credit
+  credit VaR = WCL - EL = LGD * EAD - EL
+- correlation = 0
+  credit VaR = WCL - EL = PD_p * LGD * EAD - EL
+  PD_p follows bernouli distribution
+
+## ---------------------------------------------------------------------------------------
+READING 19: rating assignment methodologies
+1. rating system
+- objectivity and homogeneity
+- specificity
+- measurability and verifiability
+
+2. approaches to predict default
+- expert-based 
+- statistical-based
+  structural approaches - based on financial assumptions
+  reduced-form approaches - purely statistical
+- numerical
+
+3. rating agencies
+- moody's - issues
+- S&P - issuer
+- FITCH - issues and issuer
+
+4. measurement of PD in rating system - based on historical data
+- single period pd
+  PD = default_t/total issuers
+- cumulative pd
+  PD_cumulative_t = sum over default_t/total issuers
+- marginal pd
+  PD_marginal_t = PD_cumu_t+1 - PD_cumu_t 
+- forward probability
+  PD_forward_t = default_t/survivied issuer @ beg
+- annualized default rate (ADR)
+  discrete: ADR_t = 1 - (1-PD_cumulative_t)^(1/t)
+  continuous: ADR_t = - ln(1 - PD_cumulative_t)/t
+  
+5. consider a zero-coupon with face value of 1
+(PD*RR + (1-PD)*1)/1+rf = 1/1+YTM
+PD = (1/LGD) * (YTM - rf)/(1+YTM)
+credit spread = YTM - rf ~ PD * LGD
+credit risk premium ~ pricing of a unit loss from credit risk
+
+6. spread01
+- price change by on basis point change in credit spread
+- z-spread is added to LIBOR to do discounting
+
+
+
+
+
+
+
+
