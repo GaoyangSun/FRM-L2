@@ -1,0 +1,82 @@
+- three pillars of credict risk
+- PD (probaility of default)  LR (loss rate)  EA (exposure amount)
+
+READING 16: the credit decision
+1. credit risk comes from
+- default on an obligation
+- increased PD
+- increased LR
+- increased EA
+- settlement risk
+
+2. 4 primary components of credict risk evaluation
+- obligor's capacity and willingness to repay
+- external conditions
+- attributes of obligation (fixed or floating)
+- credit risk mitigants
+
+3. credit analysis techiniques
+- qualitative to decide willingness to pay
+  gather info/face-to-face meetings/"name lending"/extrapolating last performance into future
+  
+- quantitative to decide ability to pay
+  examine the past, current, forecasted financial statements
+  limitations: historical nature of the data/ difficult to make accurate projections
+  
+4. categories of analysis
+[1] consumers
+    - credit score
+[2] corporations
+    - liquidity, cash flow with earning capacity and profitability
+[3] financial institutions
+    - capital adequacy, asset quality, ability to withstand financial stress
+    - bank insolvency <> backruptcy
+[4] sovereigns
+    - external debt, tax receipts
+    
+5. measures
+PD - probaility of default
+LGD - loss given default
+EAD - exposure at default
+EL - expected loss = PD * LGD * EAD
+time horizon - the longere the horizon, the greater the risk
+
+## ---------------------------------------------------------------------------------------
+READING 17: the credit analyst
+1. JD
+- consumer credit analyst
+  admin role, mostly with individual consumer mortgages
+- credit modeling analyst
+  quant role, with credit scoring systems
+- corporate credit analyst
+  non-financial
+- counterparty credit analyst
+  financial
+- credit analyst at rating agencies
+- sell-side and buy-side fixed-income analysts
+- bank examiners and supervisors
+
+2. by employer
+- financial institutions
+- rating agencies
+- government agencies
+- rating advisor
+
+3. corporate credit analyst
+- the larger the company, the more the info, the lower the cost, and vice versa
+- an analyst will most likely focus on one or two industries
+- cash flow analysis is the key to corporate credit risk assessment
+
+4. banking credit analyst
+- counterparty credit analyst
+  do risk management/ help to reach conclusions and recommendations about allocation of credit limits et al.
+- fixed-income and equity analyst
+  fundamentail and technical analysis/help to select the investment
+  
+5. tools and methods
+- primary research skill
+  first-hand material of financial statements
+- secondary research skill
+  use research published
+  
+  
