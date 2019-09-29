@@ -225,6 +225,7 @@ bond value in t1: min(K, V) = K - max(K-V,0) - risk-free asset - put option with
   conditional default prob - no memory
 - risk-neutral hazard rate
   lambd * LGD = credit spread
+  lambd (hazard rate) = credit spread/LGD
 
 10. other models
 - LDA
@@ -288,11 +289,88 @@ LGD = F * PD - Ve^(rt)*N(ln(F) - ln(V) - rt - 0.5*sigma^2*t / sigma*t)
   expected bond value E(BV_p) = sum over prob of migtrating * bond value @ a given rating
 - KMV
   expected default frequencies(EDFs) for each obligor
-  pro: use current equity value, provide a direct estimation of loss distribution
+  pro: provide a direct estimation of loss distribution based on the observed equity value
 - creditPortfolioView
   models the transition matrices using macroeconomic or economic cycle
 - limitations of models above
   do not account for changes in interest rataes/credit spread/current economic conditions
 
 7. credit derivatives
- 
+ususally an OTC contract with payoffs contingent on a specified credit event
+- credit default put
+   pays at default
+- credit default swap (CDS)
+  the purchaser gets credit protection and make fixed pmts thourghout the left of the product, until default
+  may require the pmts recevier to purchase the underlying asset prior to default
+- total rate of return swaps (TROR)
+  exchange the total return of a risky corporate bond for a floating rate(LIBOR) + fixed spread
+
+8. vulnerable option
+just ordinary option with the possibilty that the sell may not pay
+- without the default risk
+  payoff = max(S-X, 0)
+- with the default risk
+  pahtoff = max(min(V, S-X), 0)
+so the cor(V,S) is quite important in valuing the option
+- if the cor(V,S) is positive, then basically no default risk
+- if the cor(V,S) is negative, then huge default risk
+you can use a option to hedge the default risk, with the payoff = max(S-X,0) - max(min(V,S-X),0)
+given the no-default option value c,
+vulnerable option = (1-PD)*c + PD*RR*c
+
+9. credit risk in a swap
+credit risk can be reduced by 
+- requiring a margin
+- netting the pmts
+covenants
+- full two-way pmt covenant - recevie net pmt no matter what
+- limited two-way pmt covenant - abolished if either party defaults
+
+## ---------------------------------------------------------------------------------------
+READING 21: spread risk and default intensity models
+1. spread conventions
+- yield spread
+  ytm risk bond - ytm benchmark government bond
+- i-spread 
+  ytm risky bond - linearly interpolated ytm on benchmark government bond
+- z-spread
+  basis points added to each spot rate on a benchmark curve
+- asset-swap spread
+  spread on floating leg of sset swap on a bond
+- CDS spread
+  market premium of CDS of issuer bond
+- option adjusted spread(OAS)
+  z-spread adjusted for optionality of embedded options
+- discount margin
+  fixed spread above current LIBOR needed to price bond correctly
+
+2. hazard rate (default density) curves
+from previously, hazard rate = credit spread/LGD, P(t*<t) = 1 - e^(-lambd*t)
+with varying hazard rate, lambd(t)
+p(t*<t) = 1 - e^(-integrate lamda over t)
+- upward-sloping (CDS) spread curve
+  predicts that the default is unlikely in the near term but increases with time
+- downward-sloping spread curve
+  predicts high expectations of short-term default, but if it can survive, long-term spread are lower
+
+3. spread risk
+risk of loss from changes in the price of securities that have a postive probability of default
+
+
+## ---------------------------------------------------------------------------------------
+READING 22: portfolio credit risk
+1. default correlation
+cor(1,2) = (pd12 - pd1*pd2)/sqrt(pd1*(1-pd1)*pd2*(1-pd2))
+by increasing the number of credit and reducing the weight, the portfolio is more "granular"
+
+2. single-factor model
+[1] alpha_i = beta_i * m + sqrt(1-beta_i^2) * epsilon_i
+where alpha_i - asset return of i
+- conditional independence 
+  once asset returns for the market are realized, default risks are independent of each other
+[2] alpha_i - beta_i*mean_m = sqrt(1-beta_i^2)*epsilon
+[3] cor = (phi(k,k) - pd^2) / pd(1-pd)
+
+3. application
+p(m) = phi((k-beta*mean_m)/sqrt(1 - beta^2))
+
