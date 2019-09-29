@@ -191,10 +191,108 @@ credit risk premium ~ pricing of a unit loss from credit risk
 - price change by on basis point change in credit spread
 - z-spread is added to LIBOR to do discounting
 
+7. Merton model
+assume V - equity value ~ lognormal, K - bond value, Euro option, and all other BSM assumption
+equity value in t1: max(V-K, 0) - call option with X as K, St as V
+bond value in t1: min(K, V) = K - max(K-V,0) - risk-free asset - put option with X as K, St as V
+- equity = V*N(d1) - Ke^(-rt)*N(d2)
+  bond = V*N(-d1) + Ke^(-rt)*N(d2) = V - equity
+- N(d2) = St>K i.e. prob(exec option)
+  PD = 1 - N(d2) =  N(-d2)
+- d1,2 = ln(V/Ke^(-rt))/sigma*sqrt(T) +/- sigma*sqrt(T)/2
+  PD = N(-d2) = N((ln(K) - ln(V) - rt)/sigma*sqrt(T) + sigma*sqrt(T)/2)
+- risk-neutral PD - risk-free rate
+  physical PD - asset return
+- debt = Ke^(-(rf + credit spread)*(T-t))
+  credit spread = -ln(D/K)*(T-t) - rf
+  
+8. KMV model
+- default point
+  if LT/ST<1.5, debt = ST + 0.5*LT
+  if LT/ST>1.5, debt = 0.7*(ST+LT)
+- no need to assume V~lognormal
+  d2 - historical data
+  distance to default DtD = ln(V) - ln(K) + (r_risky - sigma^2/2) - 'other payouts'  /  sigma
+                          = (ln(V) - ln(K))/sigma
+                          
+9. exponential and possion distribution
+- possion
+  measures the prob of an incident happens k times during a period, lambd being the average times
+  P(x=k) = (lamdb^k/k!)/sum over lambd^k/k! = (lambd^k/k!)*e^(-lambd)
+- exponentional
+  measures the prob of an incident happens during 0~t, lambd (hazard rate) being the averge times
+  cumulative default prob P(t*<t) = 1 - e^(-lambd*t)
+  conditional default prob - no memory
+- risk-neutral hazard rate
+  lambd * LGD = credit spread
 
+10. other models
+- LDA
+  statistical based, reduced-form
+  does not calculate PD, but determine whether it would default
+  Altman's Z-score
+  cutoff point adjust: 1 + ln((1-pd)%pd * (opportunity cost * LGD))
+- logistic regression model
+  ln(pd/1-pd) = beta0 + beta1*x1 + ...
+  pd = 1/1+e^(-1*.....)
+- cluster analysis
+  aggregate on a specific homogeneity
+- PCA
+  orthogonally, less statistical 'noisy' feature
+  usually followed by factor analysis
+- cash-flow simulation
+  pd = # future scenarios with default/ # total scenarios
+  huge model risk, and expensive computation
+- hueristic method
+  minic human decision making procedures
+- numerical method
+  algorithmic method, often by NN
+- creditMetrics (JP morgan)
+  use ratings transition matrix, generate a distribution
+- creditRisk+ (credit suisse)
+  use possion distribution, similar to insurance companies, generate default/no default
 
+## ---------------------------------------------------------------------------------------
+READING 20: credit risks and credit derivatives
+1. Merton model
+- Vt - firm value, F - face value of debt
+value of equity St = max(Vt - F,0)
+value of debt Dt = F - max(F - Vt,0) = Vt - max(Vt - F, 0)
+St = V*N(d) - Fe^(-rt)*N(d - sigma*sqrt(t))
+where d = ln(V/Ke^(-rt))/sigma*sqrt(t) + 0.5*sigma*sqrt(t)
 
+2. credit spread
+ytm = credit spread + rf = ln(F/D)/t
+credit spread = -(1/t)*ln(D/F) - rf
 
+3. subordinate debt
+- if not in financial stress
+  behave like senior debt, negatively correlated with time to maturity, firm volatility, anuual interest rate
+- in in financial stress
+  behave like equity, positively correlated with time to maturity, firm volatility, annual interest rate
+  
+4. interest rate dynamics
+- Vasicek mode
+d_r = k(theta - r)*d_t + sigma_t*epsilon_t
+value of debt negatively correlate with cor(V,d_r), k, sigma_r, T
 
+5. apply Merton model
+PD = N(ln(F) - ln(V) - rt + 0.5*sigma^2*t / sigma*sqrt(t))
+LGD = F * PD - Ve^(rt)*N(ln(F) - ln(V) - rt - 0.5*sigma^2*t / sigma*t)
 
+6. credit portfolio models
+- creditRisk+
+  by a set of common risk factors for each obligor, each with its own sensitivity to factors
+  assumes uncorrelated default 
+- creditMetrics
+  expected bond value E(BV_p) = sum over prob of migtrating * bond value @ a given rating
+- KMV
+  expected default frequencies(EDFs) for each obligor
+  pro: use current equity value, provide a direct estimation of loss distribution
+- creditPortfolioView
+  models the transition matrices using macroeconomic or economic cycle
+- limitations of models above
+  do not account for changes in interest rataes/credit spread/current economic conditions
 
+7. credit derivatives
+ 
