@@ -177,14 +177,18 @@ READING 19: rating assignment methodologies
   PD_marginal_t = PD_cumu_t+1 - PD_cumu_t 
 - forward probability
   PD_forward_t = default_t/survivied issuer @ beg
+- survival rate
+  SR_forward_t = 1 - PD_forward_t
+  therefore, mul over SR_forward = SR_accum = 1 - PD_cumulative_t
 - annualized default rate (ADR)
-  discrete: ADR_t = 1 - (1-PD_cumulative_t)^(1/t)
-  continuous: ADR_t = - ln(1 - PD_cumulative_t)/t
+  discrete: (1-ADR_t)^t = 1 - PD_cumulative_t    ADR_t = 1 - (1-PD_cumulative_t)^(1/t)
+  continuous: e^(-ADR_t*t) = 1 - PD_cumulative_t       ADR_t = - ln(1 - PD_cumulative_t)/t
   
 5. consider a zero-coupon with face value of 1
 (PD*RR + (1-PD)*1)/1+rf = 1/1+YTM
 PD = (1/LGD) * (YTM - rf)/(1+YTM)
-credit spread = YTM - rf ~ PD * LGD
+credit spread = YTM - rf ~ PD * LGD 
+which makes perfect sense, credit spread linearly correlate with PD * LGD
 credit risk premium ~ pricing of a unit loss from credit risk
 
 6. spread01
