@@ -142,3 +142,52 @@ READING 26: collateral
   
 ## ---------------------------------------------------------------------------------------
 READING 28: counterparty risk intermediation
+1. counterparty risk intermdeidaries
+- SPV
+to create a bankruptcy-remote entity and give a counterparty preferential treatment when default
+may introduce legal risk, separation may not be effective
+- DPC (derivative product company)
+to create a bankruptcy-remote entity and inject capital to gain a strong credit rating
+spearation may not be effective, may further introduce operational and mkt risk
+- monolines (monoline insurance company)
+just do credit derivative product
+should further consider wrong-way risk
+- CCP (central counterparties)
+require collateral posting and default funds
+uniquely have liquidity risk and systemic risk
+
+2. risk management of CCP
+- netting
+- margin requirement
+  [1] variation margin
+      closely track market movement, transfer on a daily/intra-daily basis
+  [2] inital margin
+      based on worst-case liquidataion/close-out costs, transfer upfront
+- auction
+  auction the defaulter's contractual obligations with multilateral netting
+- loss mutualisation
+  loss dispersed across all the default funds of members
+- in extreme situation
+  [1] additional call for default fund
+  [2] variation margin haircutting  - receive full collateral, pay collateral with haircut
+  [3] seletive tear-up  - tear up unmatched contracts
+- loss waterfall
+  defaulter's fund - CCP's reserve - members' fund - extra call for fund - liquidation/injection
+
+3. capital charges with CCP
+- trade exposures
+  from MtM exposure and variation margin, with potential future exposure and initial margin
+  only affected when CCP defaults
+- default fund exposures
+  can by affected by defaults of members
+  
+4. pros and cons
+pro: transparency/ netting/ loss mutialisation/ legal and operational efficiency/ liquidity/ default mgt
+con: moral hazard - little incentive to manage risk
+     adverse selection - trade with CCP that offer the best price due to incomplete info
+     bifurcations - difference between OTC and CCP
+     procyclicality - initial margin high in bad mkts, low in good mkts
+
+5. effect on xVA
+- less CVA and KVA
+- more FVA and MVA from more margin
