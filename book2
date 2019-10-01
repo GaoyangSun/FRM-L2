@@ -235,8 +235,9 @@ bond value in t1: min(K, V) = K - max(K-V,0) - risk-free asset - put option with
 - LDA
   statistical based, reduced-form
   does not calculate PD, but determine whether it would default
-  Altman's Z-score
-  cutoff point adjust: 1 + ln((1-pd)%pd * (opportunity cost * LGD))
+  Z-score cut-off, .i.e discriminate threshold, Z = 2.675
+  cutoff point adjust in an unbalanced sample  z + ln((q_solv*cost_solv)/(q_insolv*cost_insolv))
+  which is z + ln((1-pd)%pd * (opportunity cost % LGD))
 - logistic regression model
   ln(pd/1-pd) = beta0 + beta1*x1 + ...
   pd = 1/1+e^(-1*.....)
@@ -282,8 +283,8 @@ d_r = k(theta - r)*d_t + sigma_t*epsilon_t
 value of debt negatively correlate with cor(V,d_r), k, sigma_r, T
 
 5. apply Merton model
-PD = N(ln(F) - ln(V) - rt + 0.5*sigma^2*t / sigma*sqrt(t))
-LGD = F * PD - Ve^(rt)*N(ln(F) - ln(V) - rt - 0.5*sigma^2*t / sigma*t)
+PD = N(-d2) =  N(ln(F) - ln(V) - rt + 0.5*sigma^2*t / sigma*sqrt(t))
+LGD = F*N(-d2) - Ve^(rt)N(-d1) = F * PD - Ve^(rt)*N(ln(F) - ln(V) - rt - 0.5*sigma^2*t / sigma*t)
 
 6. credit portfolio models
 - creditRisk+
@@ -368,11 +369,15 @@ cor(1,2) = (pd12 - pd1*pd2)/sqrt(pd1*(1-pd1)*pd2*(1-pd2))
 by increasing the number of credit and reducing the weight, the portfolio is more "granular"
 
 2. single-factor model
+- use asset return to determine whether a firm will default
 [1] alpha_i = beta_i * m + sqrt(1-beta_i^2) * epsilon_i
-where alpha_i - asset return of i
+where alpha_i - asset return of i, m,epsilon ~ N(0,1), cov(m, epsilon)=0
+    alpha_i ~ N(0,1)
 - conditional independence 
   once asset returns for the market are realized, default risks are independent of each other
-[2] alpha_i - beta_i*mean_m = sqrt(1-beta_i^2)*epsilon
+[2] given a certain mkt return, mean_m
+    alpha_i = beta_i*mean_m + sqrt(1-beta_i^2)*epsilon
+    alpha_i ~ N(beta_i*mean_m, 1-beta_i^2)
 [3] cor = (phi(k,k) - pd^2) / pd(1-pd)
 
 3. application
