@@ -1,0 +1,144 @@
+READING 27: credit exposure and funding
+1. exposure metrics
+- expected mark to market  MtM
+  expected value at a given point
+- expected exposure  EE
+  the amount to be lost if postive MtM and the counterparty defaults
+- potential future exposure  PFE
+  an area of MtM value at a specific point in the future, based on a high C.I.
+  max PFE - the highest PFE value over an interval
+- expected positive exposure  EPE
+  average of EE through time
+- negative exposure
+  the exposure from the counterparty's view
+  EE ~ NEE EPE ~ ENE
+- effective EE
+  non-decreasing EE
+- effective EPE  (rollover risk and short-term huge exposure
+  average of effective EE through time
+  
+2. compare to VaR
+- application
+  credit exposure to pricing and risk mgt, VaR only in risk mgt
+- time horizon
+  credit exposure over many horizons, VaR in a short horizon
+- risk mitigants
+  credit exposure by netting and collateral
+  
+3. factors affect credit exposure
+future uncertainty/ periodic cash flows/ combination of profiles/ optionality
+
+4. security exposure profiles
+- loans,bonds and repos
+  mostly equal to notional value
+  bond - fixed rate, affected by interest rate
+  loan - floating rate, affected by prepayments
+  repo - haircut
+- forward
+  exposure is increasing function of time, showing increasing uncertainty
+- interest rate swap (no principal involved)
+  uncertainty and remaining pmt - peaked shape
+- cross-currency swap (principai involved)
+  = interest rate swap + currency forward   increasing
+- CDS
+  = pay fixed (insurance) + receive floating   -  EE  like interest rate swap
+  may roar to sky because default happens, then expect a huge money incoming,  EPE 
+  
+## ---------------------------------------------------------------------------------------
+READING 24: counterparty risk
+1. different from lending risk from
+uncertain exposure/ bilateral
+
+2. transactions
+- securities financing transactions
+  repo - short-term lending agreements secured by collateral
+  borrower sell securities to lender to get cash, then buy back the securities later
+  lender gets repo rate = rf + counterparty risk charge
+- OTC derivatices
+  interest rate swaps - netting reduces the counterparty risk
+  foreign exchange transactions - huge risk due to the notional amount exchange
+  CDS - huge risk due to wrong-way risk and volatility
+
+3. managing counterparty risk
+- trade with high-quality couterparties
+- cross-product netting 
+  combine transactions with the same counterparty
+- close-out
+  close of all contracts with the defaulted counterparty
+- collateralization
+- walk-away feature
+  allows a party to cancel the transactions if the couterparty defaults (on other transactions)
+- diversification
+- reset agreement
+  avoids a party is deep in-the-money, reset parameter to be more at-the-money
+
+4. XVA
+- CVA  credit value adjustment
+  [1] one-time
+  CVA = LGD * sum_over EE(t_i)*PD(t_i-1, t_i)
+  where EE - the discounted expected exposure, PD - marginal PD
+  [2] fee rate each year
+  CVA = EPE * spread
+  wrong-way risk: cor(PD, EAD)>0
+- DVA  debt value adjustment
+- BCVA  bilateral CVA
+  [1] one-time
+  BCVA = LGD_c * sum_over EE(t_i) * SR_p_t_i * PD_c_(t_i-1, t_i)
+       - LGD_p * sum_over NEE(t_i) * SR_c_t_i * PD_p_(t_i-1, t_i)
+  [2] fee rate
+  CVA = EPE * CS_c - ENE * CS_p
+- FVA  funding value adjustment     cost/benefit from funding a transaction
+- ColVA collateral value adjustment    cost/benefit from embedded options in collateral
+- KVA  capital value adjustment   cost of holding capital over the transactions
+- MVA  margin value adjustment  cost of posting margin over the transactions
+
+## ---------------------------------------------------------------------------------------
+READING 25: netting, close-out
+1. ISDA Master Agreement rules
+collateral/ event of default and termination/ combined into a single net obliagtion/ close-out
+
+2. Netting
+- pmt netting
+  net cash flows on the same day, reduces settlement risk
+- close-out netting
+  cancel all transaction with a counterparty under default, reduces pre-settlement risk
+- trade compression
+  multilateral netting, same product with the same maturity
+  
+3. correlation impact
+postive correlation provides lower benefit than negative correlation
+
+4. netting factor
+assume asset values follow multivariate normal distribution zero mean and equal standard deviation
+- EE(neting)/EE(no netting) = sqrt(n+n(n-1)cor)/n
+  where n - # exposure cor - mean of correlation
+  
+5. termination
+- additional termination event (ATE)
+  terminate in situations like rating downgrade
+- break clauses or mutual puts
+  mandatory/optional/trigger-based break
+  allows a party to terminate a transaction at a future date at replacement value
+  not popular because effective break are early, but it would jeopardize the relationship
+  
+  
+## ---------------------------------------------------------------------------------------
+READING 26: collateral
+1. Credit Support Annex (CSA)
+- one-way CSA/two-way CSA
+- threshold
+- minimum transfer amount (MTA)
+  (MtM) exposure > threshold + MTA
+- initial margin
+  posted upfront irrespective of exposure
+- haircut
+  1-x% credit will be given for every unit of security posted
+  
+2. funding aspect
+- rehypothecation  (re-collateralization)
+  dangerous since it may not be received
+- segregation
+  cannot re-collateralize, use third-party
+  
+## ---------------------------------------------------------------------------------------
+READING 28: counterparty risk intermediation
