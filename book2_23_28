@@ -182,6 +182,7 @@ uniquely have liquidity risk and systemic risk
   can by affected by defaults of members
   
 4. pros and cons
+reduce systemic risk by diversifying, reduce but not eliminate counterparty risk
 pro: transparency/ netting/ loss mutialisation/ legal and operational efficiency/ liquidity/ default mgt
 con: moral hazard - little incentive to manage risk
      adverse selection - trade with CCP that offer the best price due to incomplete info
@@ -189,5 +190,5 @@ con: moral hazard - little incentive to manage risk
      procyclicality - initial margin high in bad mkts, low in good mkts
 
 5. effect on xVA
-- less CVA and KVA
-- more FVA and MVA from more margin
+- less CVA, FVA and KVA
+- more MVA from more margin
