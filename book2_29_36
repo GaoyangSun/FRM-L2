@@ -1,3 +1,27 @@
+READING 32: stress testing counteryparty exposure
+1. on loan portfolio (exposure certain)
+EL = PD * LGD * EAD - stressing PD
+stress expected loss = PD_stress * LGD * EAD
+stress loss = EL_stress - EL
+
+2. on derivative portfolio
+EL = PD * LGD * EPE - stressing PD, EPE
+normal EL = PD * alpha * EPE * LGD
+stress EL = PD_stress * alpha * EPE_stress * LGD
+stress loss = EL_stress - EL
+
+3. on CVA
+stress EE and PD
+CVA = sum over counterparties/period LGD * EE * PD
+CVA = sum over counterparties/period LGD * EE_stress * PD_stress
+
+4. pitfalls
+- mostly current exposure, rather than EE and EPE
+- not a consistent framework consisting of all counterparty risk
+- hard to estimate exposure because of non-linearity``
+
+
+## ---------------------------------------------------------------------------------------
 READING 35: securitization
 1. process
 transform the illiquid asset into a package of ABS
