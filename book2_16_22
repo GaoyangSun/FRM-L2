@@ -304,11 +304,32 @@ LGD = F*N(-d2) - Ve^(rt)N(-d1) = F * PD - Ve^(rt)*N(ln(F) - ln(V) - rt - 0.5*sig
 ususally an OTC contract with payoffs contingent on a specified credit event
 - credit default put
    pays at default
+   risky bond = risk-free bond - put
 - credit default swap (CDS)
   the purchaser gets credit protection and make fixed pmts thourghout the left of the product, until default
   may require the pmts recevier to purchase the underlying asset prior to default
+  By means of settlement
+  [1] cash settlement  
+      reference asset still in CDS payer, recevier pays the difference
+  [2] physical settlement
+      reference asset transfer to CDS recevier, recevier pays the whole
+  [3] digital CDS
+      pays a fixed amount, not the difference
+  By means of reference asset
+  [1] single-name CDS
+      one reference asset
+  [2] basket CDS
+      a basket of reference asset
+      - Nth to default CDS
+        pays off when the n-th default, amount being the difference of the latest n-th default entity (one entity)
+        high correlation, harder to trigger first-to default, low first-to default value, high n-th-to default value
 - total rate of return swaps (TROR)
-  exchange the total return of a risky corporate bond for a floating rate(LIBOR) + fixed spread
+  receive floating rate(LIBOR) + fixed spread + depreciation
+  pay realized return + appreciation
+  hedges against default/credit deterioration/market risk
+- credit-linked notes
+  risk-free bond - CDS = CLN
+  least risky because of the amount to purchase risk-free bond can be used as safety for CDS
 
 8. vulnerable option
 just ordinary option with the possibilty that the sell may not pay
