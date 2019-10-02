@@ -165,3 +165,41 @@ READING 33: credit scoring and retail credit risk management
 scorecard performance - acutal against predicted
 cumulative accuracy profile (CAP)
 accuracy ratio (AR) = A_r/A_p
+
+## ---------------------------------------------------------------------------------------
+READING 29: dfault prob, credit spreads, and funding costs
+1. default prob
+risk-neutral default prob = real-world default prob + default risk premium + liquidity premium
+
+2. default estimation approach
+[1] historical approach
+- use transition matrix
+- mean-reversion: cumulative default prob for investment-grade grows faster than otherwise
+[2] equity-based approach
+- merton model - equity as call
+- KMV model - distance to default = (asset - debt)/sigma
+- CreditGrades 
+[3] risk-neutral approach
+- use observed credit spread and mkt price of a credit security
+- cumulative default prob = 1 - e^(-hazard_rate*T)
+  where hazard_rate = CDS spread/LGD
+  
+
+## ---------------------------------------------------------------------------------------
+READING 30: CVA DVA
+you calculate such value adjustment to determine whether a trade is profitable when factoring these adjustment
+.i.e value of risky asset - (default) risk-free asset - CVA
+
+1. CVA
+expected value of counterparty risk
+[1] CVA = LGD * sum over time EE * marginal PD
+EE - discounted expected exposure
+[2] CVA_spread = CDS spread * EPE
+EPE - expected postive exposure (which is just the average of EE) over a period
+assumptions: EPE constant/ default prob constant/ EE or default is symmetric
+
+2. incremental and marginal
+exactly like IVaR and MVaR
+
+## ---------------------------------------------------------------------------------------
+READING 31: wrong-way risk
