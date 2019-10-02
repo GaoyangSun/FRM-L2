@@ -73,7 +73,7 @@ uncertain exposure/ bilateral
   avoids a party is deep in-the-money, reset parameter to be more at-the-money
 
 4. XVA
-- CVA  credit value adjustment
+- CVA  credit value adjustment (present value of expected loss due to default)
   [1] one-time
   CVA = LGD * sum_over EE(t_i)*PD(t_i-1, t_i)
   where EE - the discounted expected exposure, PD - marginal PD
