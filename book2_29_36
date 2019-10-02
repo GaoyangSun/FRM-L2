@@ -1,0 +1,143 @@
+READING 35: securitization
+1. process
+transform the illiquid asset into a package of ABS
+bank (true sale to) SPV (make ABS to) investor
+- loan originator (bank)
+- underwriter (SPV)
+- rating agencies
+- servicers and managers
+- trustee (can manage) and custodian (safeguard)
+
+2. motivations
+true sale/shrink bal sheet/decrease leverage/decrease regulatory and capital requirement
+
+3. tranching
+- senior/mezzanine/junior/equity/trust
+- attachment point(start to lose money) to break point (all money out)
+- waterfall (principal + interest)
+  overcollateralization - more collateral to enhance the lower rated assets
+  OC trigger - max amount allocated to equity tranch, the remaining goes to Trust
+
+4. spv structure
+[1] amortizing structure (mortgage)
+    principal and interest paid on a coupon-by-coupon basis
+    WAL (weihgted average life) - time-weighted outstanding period
+[2] revolving structure (credit card)
+    short-dated assets with high pre-pmt speed
+    revolving period - principal collections are used to purchase new receivables
+    amortization period - pmts to investor in equal instalments or a single lump of sum
+[3] master trust (multiple securitizations)
+    on demand
+
+5. performance analysis
+[1] for mortgages
+measure prepayment risk
+- PSA (public securities Association)
+  assumed prepayment rate - 100% PSA: increase 0.2% per month until month 30, then remain constant
+  [CPR/(0.2*months)]*100
+- CPR (constant prepayment rate)
+  1 - (1 - SMM)^12
+- SMM (single monthly mortality)
+  prepayment/outstanding pool balance
+stat for the pool
+- WAL (weighted average life of cash flows)
+- WAM (weighted average maturity)
+  value-weighted maturity
+- WAC (weighted average coupon)  
+  value-weighted coupon rate
+- DSCR (debt service coverage ratio) 
+  net operating income/debt pmts
+[2] others
+- MPR (monthly payment rate)
+  collections/outstanding
+- default ratio
+  defaults/outstanding
+- delinquency ratio
+  delinquents(delay>90day)/outstanding
+
+## ---------------------------------------------------------------------------------------
+credit scenario analysis
+- drawback: strong assumptions about constant default rate, same default prob each loan, no correlation
+- simulation
+  estimate parameters / generate default time simulations / compute the credit loss
+  
+- effect of increasing PD
+  value: negative impact on all cash flow, all tranche value go down
+  credit VaR (uncertainty): 
+  - decrease for equity tranche (almost certain will lose money)
+  - increase for senior tranche (maybe start to lose money)
+  - low VaR, mezz like senior
+  - high VaR, mezz like equity
+  
+- effect of increasing correlation
+  if low PD, correlation does not matter
+  VaR: all higher VaR because of uncertainty
+  Value: 
+  - decrease for senior tranche
+  - increase for equity tranche       
+  - mezz like above
+
+- default 01
+  impact of 1 bp in default rate
+  up and down 10 bps
+
+## ---------------------------------------------------------------------------------------
+READING 36: the securitization of subprime mortgage credit
+1. subprime borrower
+  low quality borrower, bank does not care because it goes to SPV
+2. subprime loan
+- adjustable rate mortgages with both fixed and adjustable-rate feature
+  2/28 or 3/27.  first 2 years, low fixed, then higher floating rate
+
+3. predatory lending
+   lender convinces the borrowe to borrow too much
+4. predatory borrowing   
+   borrower to convince the lender to lend too much
+   
+5. key frictions 
+[1] predatory lending - lender to borrower
+[2] mortgage fraud - lender (with more info) to arranger(SPV)
+[3] adverse selection  - arranger (with more info) to asset manager
+[4] moral hazard - borrower (less incentive to maintain collater due default) to servicer (who pay in advance)
+[5] moral hazard - servicer (try to withhold info to get more service fee) to asset manager
+                   servicer (try to get better rating) to credit agency
+[6] principal-agent problem - asset manager (invest in riskier asset) to investor
+[7] model error - rating agency (not differentiate bond and securitization) to investor
+
+6. implications
+[1] aligned relation between investor and asset managers
+[2] structured investment to be evaluated relative to index of structured products
+[3] originator and arranger to keep some equity tranche
+[4] originator have adequate capital
+
+## ---------------------------------------------------------------------------------------
+READING 33: credit scoring and retail credit risk management
+1. retail banking
+- consumer deposit
+- consumer lending
+  home mortgages/ home equity loans/ installment loans/ credit card revolving loans/ small business loans
+
+2. nature of retail credit risk
+- well-diversified, single default does not matter
+- easy to predict, expected loss can be into the price charges
+- unexpected loss come from:
+  innovation product/ sharp change in the economy/ social and legal system/ operational issue
+
+3. key variables in mortgage credit assessment
+[1] document type
+    full doc/ stated income/ no income or asset/ no ratio/ no doc
+[2] ratios
+    - FICO
+    - DTI  debt to income
+    - LTV  loan to value (collateral)
+    - pmt type (adjustable rate or ..)
+
+3. credit scoring model
+[1] credit bureau scores (FICO)
+[2] pooled models (outsource model, indoor data)
+[3] custom models (indoor data and model)
+
+4. to measure scoring model
+scorecard performance - acutal against predicted
+cumulative accuracy profile (CAP)
+accuracy ratio (AR) = A_r/A_p
