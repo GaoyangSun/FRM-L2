@@ -191,3 +191,41 @@ con: moral hazard - little incentive to manage risk
 5. effect on xVA
 - less CVA, FVA and KVA
 - more MVA from more margin
+
+## ---------------------------------------------------------------------------------------
+READING 23: structured credit risk
+1. covered bonds
+- mortgage loans into a covered pool by which a bond issue is secured
+- not securitization, in bal sheet
+- principal and interest paid depends on the bond issuer
+
+2. mortgage pass-through securities
+- "pass-through" means no change
+- true securitizations because of true sale
+- most are agency MBS, issued under government guarntee, no defaulr risk, only prepmt risk
+
+3. CDO (collateralized debt obligation)
+- CLO (loan) CBO (bond)
+- ususally tranched
+- cash CDO (normal)
+- synthetic CDO (like CLN)
+  in the last step of CLN, which is sell CLN to investors, is here tranched
+- single-tranche CDO
+  only one trache, tailored to needs, are sold
+  
+4. credit enhancement
+- internal credit enhancement (by re-structuring)
+[1] subordination  (tranching)
+[2] overcollateralization
+    asset > tranches sold
+[3] excess spread
+    gross: interest earned - interest paid
+    net: gross - fees and expenses
+[4] margin step-up (promise the interest rate will be higher)
+[5] shifting interest (all principal pmt to senior over a period)
+[6] performance trigger (paid in principal to mezz)
+- external credit enhancement
+  pool insurance
+- external liquidity enhancement
+  interest rate swap to deal with unmatched pmt period or floating pmt
+  
