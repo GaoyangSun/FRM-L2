@@ -1,2 +1,161 @@
 CH 1, 5-8, 20
 READING 37, 41-44, 56
+
+1. def
+risk of loss resulting from inadequate or failed internal process, people and systems or from external events
+include: legal risk
+does not include: strategic and reputation risk
+
+2. risk event
+high frequency/low severity (HFLS)
+low frequency/high severity (LFHS)
+
+3. sources in OpRIsk framework
+- internal loss data
+  HFLS
+  problems: 
+  [1] not enough data  -  workshop/scenario data
+  [2] pre-acquisition, varying data collection threshold - set collection threshold
+  solution:
+  provision
+  - not recognized for future operating loss
+  - recoginized for onerous contract
+  - provision for restructing cost should be recognized only when detailed format plan/valid expection
+  
+- business environment and internal control factors (BEICFs)
+  [1] risk control self-assessment (RCSA)
+  [2] key risk indicators (KRIs)
+  
+- external data
+  problems:
+  [1] not representative data
+  [2] strong bias in large and well-publicized losses - operational risk capital up
+  [3] relevence-based filtering
+  [4] size differential
+  
+- scenario analysis
+  mostly from expert opinions, which would result in
+  presentation bias(order of speech)/ availability bias/ anchoring bias/ "huddle" bias or anxiety bias (unwilling to confront)
+  gaming/ over/under confidence bias/ inexpert opinion/ context bias
+  
+4. assess op risk
+- top-down
+  simple/ non-intensive data/ undifferentiated from HFLS and LFHS/ no diagnostic ability/ backward-looking
+  [1] BIA - basic indicator approach
+      operational risk capital of BIA = certain percentage of average gross income (net interest income + non-interest income)
+      ORC_BIA = alpha * GI
+      where GI of a single year cannot be lower than 0, alpha = 15%
+  [2] SA - standardized approach
+      separate business into 8 business line, different weight in business line
+      18% weighting: corporate finance/ trading and sales/ settlement and pmt activities
+      15% weighting: commercial banking/ angency and custody services
+      12% weighting: retail banking/ retail brokerage/ asset management
+      ORC_SA = sum over max(GI * beta,0)/3
+  [3] ASA - alternative standardized approach
+      different from SA in retail banking and commercial banking
+      K = beta * m * LA
+      where K - capital charge, beta - weight for business line, m - coef
+            LA - retail loans and advances, averaged over the past three years
+            
+- botton-up
+  complex/ intensive data/ differentiated from HFLS and LFHS/ diagnostic ability/ forward-looking
+  advanced measurement approach (AMA)
+  own model of each bank for calculating operational risk capital
+      7 categories of operational risk
+      - client, products, and business practices (LFHS)
+        confidential info, money luandering, market manipulation, model flaw
+      - internal fraud (LFHS)
+        (intentive) misreporting data, insider trading, unauthorized trading, forgery, embezzlement, bribe, smuggling
+      - external fraud
+        disobey the law, misuse property, robbery, computer hacking
+      - damage to physical assets
+        natural disasters
+      - execution, delivery, and process management (HFLS)
+        (unintentive) data errors, unfinsihed legal document
+      - business disruption and system failures
+        computer failure
+      - employment and workplace safety
+  [1] LDA
+      assume i.i.d losses within a unit
+      usually equal weighting in 8 business line * 7 categories, except split loss/out-dated/external data
+      - frequency distribution
+        binomial/ poisson/ negative binomial
+      - severity distribution 
+        lognormal/ weibull/ gamma/ exponential (thin tail, like normal distribution)
+        suited for HFLS, internal losses
+        pareto/ GPD (fat tail)
+        suited for LFHS
+      - convolution
+        given frequency and severity distribution, list all possible scenarios
+        sort scenarios by loss, and get cumulative probaility
+        economic capital/operational risk capital = VaR - EL = VaR - E(prob)*E(sever)  (if independent)
+      - aggregation
+        aggregate loss distribution of different business lines
+        linear assumption - correlation
+        non-linear - copulas
+        perfectly dependent - add them together
+  [2] scenario analysis approach
+      to identify fat-tail events
+      pro - future events
+      con - highly subjective, few data points
+  [3] hybrid approach
+      combine LDA and hybird, pro and con are present
+      
+5. management of Op risk
+three lines of defense
+  [1] business line management
+      product activities, process
+  [2] independent corporate operation risk function (CORF)
+      risk meansurement and reporting, risk committees, board reporting
+      input and output of business line, risk management, measurement and reporting systems
+  [3] independent review
+
+principles
+  - board of directors set up culture/ bank set up framework accordingly
+  - board of directors review framework and risk appetite/ senior management set up governance structure
+  - senior management assess all and new things, monitor risk/ banks too/ banks operate on ongoing basis
+  - bank disclose to stakeholder
+  
+board of directors should
+  - establish code of conduct, mgt culture and dynamically oversight
+  - provide senior mgt with guidence
+  - regularly review the framework/audit
+  
+senior mgt should
+  - establish and maintain specific mechanism
+  - translate operational risk mgt. framework
+  - assign authority and responsibility
+  - ensure staff communication, coordination/ bank activities
+
+tools
+  audit findings/ internal and external data collection and analysis/ risk assessments
+  business process mapping/ risk indicators/ scenario analysis
+  measurement/ comparative analysis
+  
+effective control enviroment
+  - appropriate segregation of duties
+  - dual control
+  
+managing tech risk
+
+managing outsourcing risk
+  - whether and how to outsource
+  - due diligence on structure/financial condition
+  - get contingency plans/ allocation of responsibility
+  
+6. management of outsourcing
+risk sources
+compliance/ concentration/ repurational/ country/ operational/ legal
+
+core element
+  - risk assessment
+  - due diligence
+    business background, reputation and strategy
+    financial condition
+    operational and internal controls
+  - contract provisions
+    scope/ cost/ performance standards/ confidence/ license/ termination/ insurance/ compliants
+    subcontracting - same provision apply/due diligence/ info and data
+  - incentive compensation
+  - monitoring
+  - continuity and contingency
