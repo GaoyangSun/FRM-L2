@@ -1,2 +1,96 @@
 CH 14-15, 17, 18
 READING 40-41, 43, 44
+1. classifications 
+[1] transaction liquidity risk
+- risk of moving the price of an asset advesely in the act of buying or selling
+  low if assets can be liquidated quickly, cheaply and lower mkt impact
+- asset is liquid if it is a good substitute for cash, and with low liquidity premium
+- mkt is liquid if mkt participants can put on or unwind position quickly, without excessive cost
+[2] bal sheet risk a.k.a funding liquidity risk
+- creditors withdraw credit
+[3] systemic risk
+- impaired ability of financial system to allocate credit/ support mkts/ settle transactions
+
+2. factors that affect transaction liquidity
+- # traders/ frequency and size of trades/ time/ cost
+- bid-ask spread as a measure
+[1] exogenous
+if position is small for the market, the spread is exogenous
+liquidity VaR = VaR + liquidity cost
+where liquidity cost = 0.5 * asset value * spread
+      spread = (ask - bid)/((ask + bid)/2)
+- normal approach
+if VaR ~ normal, mean = 0, liquidity VaR = V*Z*sigma + 0.5*V*spread
+LVaR/VaR = 1 + 0.5*spread/(sigma*Z)
+- lognormal approach
+if VaR ~ lognormal, mean = 0, liquidity VaR = V*(1-exp(-Z*sigma)) + 0.5*V*spread
+LVaR/VaR = 1 + 0.5*spread/(1-exp(-sigma*Z)
+-
+for both normal and lognormal case, 
+LVaR/VaR is positively correlated with spread(larger liquidity per), 
+negatively correlated with confidence, holding period (larger VaR per)
+- random spread
+assume spread could take an extreme value
+LVaR = VaR + 0.5 * [spread_mean + Z' * spread_sigma]*V
+VaR could take normal or lognormal
+
+[2] endogenous
+market impact, based on the responsiveness of the market
+elasticity E = (d_p/p)/(d_N/N)   -  price change by one percent trade    
+LVaR = VaR * (1 - d_p/p) = VaR * (1 - E * (d_N/N))
+
+3. funding liquidity
+liquidity at risk (LaR) - maximum likely cash outflow
+factors that affect LaR:
+borrowing and lending/ margin requirements/ collateral obligations/ exercise of options
+
+4. approaches to estimate crisis liquidity risk
+[1] crash metrics
+P/L = delta*d_S + (gamma/2)*(d_s)^2
+argmax P/L = -delta/gamma
+max P/L = delta^2/gamma
+[2] worst-case
+[3] crisis-scenario analysis
+
+5. repo
+short-term loan secured by collateral, 
+a party sells a security at a specified price with a commitment to buy back the security at another specified price
+final price = inital price * (1 + rate*n/365)
+where rate - yearly rate, n - repo days
+repo borrower lend money from repo investor
+- reverse repo
+repo investor as initiator
+- GFC
+repo borrower unable to meet margin call/ insufficient collateral
+raising haircut/ unwilling to take low-quality collateral
+- general collater
+lenders want to do cash management, therefore only care about the quality of collateral,
+but not a particular security or class
+'the' GC rate - U.S. Treasury as collateral
+fed funds-GC spread = federal funds rate (with credit risk) - the GC rate
+the spread widens when Treasuries become more scarcer, higher price, lower return, lower GC rate
+                       or financial stress
+- special collateral
+lenders want to do security financing, therefore want to get a particular security as collater,
+short it, buy back later, make a profit, then give it back to repo borrower
+special spreads = the GC rate - special rates
+newly-issued bond (on-the-run) often trade special (lower repo rate), then goes off-the-run, old, double-old (gc)
+
+6. source of liquidity risk
+- markets for collateral
+[1] margin loans
+you have stocks, pledge the stock to borrow money, then use the money to buy other stocks
+[2] repo
+spot sale and forward repurcahse. creates liability on economic bal sheet
+[3] securties lending
+borrow stocks on a rebate, then short and buy back later
+if there is dividend, the lender would require the dividend
+- banks and hedge funds (funding risk)
+rollover risk - short-term debt cannot be refinanced easily
+asset-liability management - avilable cash and short-term securities, trade-off between capital reserve and return
+LBO - leveraged buyout, take additional debt to acquire
+
+6. leverage
+R_equity = Leverage * R_asset - (Leverage - 1)*R_debt
+gross leverage = all asset/ capital
+net leverage = (long position - short position)/ capital
