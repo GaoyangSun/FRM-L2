@@ -1,0 +1,87 @@
+Basel I
+only consider credit risk
+- cooke ratio
+i.e. capital adequate ratio = "capital"/"asset" (8%)
+- risk-weighted asset (RWA)
+weight 0: cash, gold bullion, OECD government bond ... (now does not matter)
+off-bal-sheet trans into in-bal-sheet - Max(V,0) + alpha*L
+- capital
+tier 1 capital - equity and non-cumulative (dividend) preferred stock. no goodwill (now does not matter)
+tier 2 capital - cumulative preferred stock. some debt, least urgent to pay back
+
+## ---------------------------------------------------------------------------------------
+1996 amendment
+add a capital charge for market risk
+
+credit risk - banking book
+held to maturity and historical cost
+market risk - trading book
+held for short-term resale and mark to market
+
+standardized approach (SA)
+- classify into debt, equity, foreign exchange, commodities, and options
+market risk charge MRC = sum over MRC for each class
+internal models approach (IMA)
+market risk charge MRC = max(prev 10day_VaR_@99%, 60 mavg 10day_VaR_@99% * 3~4) + SRC
+where 3~4 based on backtestting, red/yellow/green
+      SRC specific risk charge
+
+## ---------------------------------------------------------------------------------------
+Basel II
+add a tier 3 capital - only for mkt risk
+
+Pillar 1: minimum capital requirement
+8% of risk-weighted asset
+8% = total capital/ RWA_credit + RWA_mkt + RWA_op
+   = total capital/ RWA_credit + MRC*12.5 + ORC*12.5
+   
+credit risk
+- standardized approach
+risk weights - by issuer and rating, retail (75%) or commercical
+                  secured by residential mortgage (35%) commercial real estate (100%)
+adjustment for collateral
+[1] simple approach
+    RWA = collateral * weight_collateral + (exposure - collateral) * weight_exposure
+[2] comprehensive
+    new exposure = exposure * (1 + adjustment factor) - collateral * (1 - adjustment factor)
+    RWA = new exposure * weight_exposure
+[3] internal ratings based apparoach
+use bank's own internal estimates to determine the risk weightings, to reduce the capital requirement
+cannot be less than 90% of prev year, no less than 80% of last two yrs
+- credit risk charge = WCL - EL = (WCDR - PD) * EAD * LGD * MA
+where WCL_99.9_1yr = EAD * LGD * WCDR
+      WCDR - worst case probaility of default - positive related to cor, PD
+      MA - maturity adjustment - (1 + (M-2.5)*b) / 1 - 1.5*b
+- correlation
+corporate, sovereign, bank - cor = 0.12 + 0.12*exp(-50*PD)
+retail exposure - cor = 0.03 + 0.13*exp(-35*PD)
+- foundation IRB approach
+  PD > 0.03%
+  LGD - 45% for senior, 75% for subordinated
+  M - 2.5
+- advanced IRB approach
+  own estimates of PD LGD EAD M
+  
+op risk
+[1] basic indicator approach
+ORC_BIA = 0.15 * average gross income   - no negative
+[2] standardized approach
+eight business line ...
+ORC_SA = avg max sum over business gross income * beta
+[3] advanced measurement approach (AMA)
+ORC_AMA = WCL_1yr_99% - EL
+frequency distribution + severity distribution _ convolve
+
+Pillar 2: supervisory review process
+principles 1 - process for assessing capital adequency
+principles 2 - supervisor review
+principles 3 - supervisor response
+principles 4 - supervisor intervention
+
+Pillar 3: market discipline
+disclose
+
+
+
+## ---------------------------------------------------------------------------------------
+Basel III
