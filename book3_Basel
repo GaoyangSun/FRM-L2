@@ -81,7 +81,117 @@ principles 4 - supervisor intervention
 Pillar 3: market discipline
 disclose
 
+## ---------------------------------------------------------------------------------------
+Solvency II
+Pillar 1: minimun capital requirement
+Pillar 2: supervisory review process
+Pillar 3: market disclosure
 
+capital requirement
+Solvency capital requirement (SCR)
+- 1-year, 99.5% VaR
+if lower than this, deliver to the supervisor a plan to restore capital
+investment risk = market risk + credit risk
+underwriting risk = life insurance + non-life insurance + health insurance
+operational risk
+
+Minimum capital requirement (MCR)
+- 25%-45% of the SCR
+if lower than this, stop running the business
+
+## ---------------------------------------------------------------------------------------
+Basel II.5
+- specifically targeted for market risk
+concern 1: HS VaR has ghost effect
+SVaR - stressed Value at Risk, based on 10-day, 99% from a significantly stressed period
+max(SVaR_t-1 * Ms * SVaR_mean_60)
+where Ms 3~4, depending on risk management quality
+
+concern 2: trading book has lower capital requirement than banking book
+IRC - incremental capital charge - 1-year, 99.9%
+for credit sensitive product in trading book (s.t. you dont put that in trading book)
+
+MRC_IMA = VaR + SVaR + SRC + IRC
+        = max(VaR_t-1, VaR_60_mean*k) + max(SVaR_t-1, SVaR_60_mean*k_s) + SRC + IRC
+        where k, ks > 3,  SRC and IRC are usually given
+
+comprehensive risk measure(CRM)
+special charge for creditcorrelate-dependent product
 
 ## ---------------------------------------------------------------------------------------
 Basel III
+why Basel III
+- procyclical deleveraging
+
+Tier 1 capital: common shares + retained earnings
+additional Tier 1 capital: non-cumulative preferred stock
+Tier 2 capital: subordinated debt with maturity > 5 years
+no Tier 3
+
+minimum capital requirement
+T1 core >= 4.5%
+T1 >= 6%
+T1 + T2 >= 8%
+
+against procyclical
+- capital conservation buffer (CCB - 2.5%)
+with CCB, T1 core >= 7%, T1 >= 8.5%, T1+T2>=10.5%
+if T1 core>4.5% but <7% with CCB, less dividend should be delivery.
+- countercyclical buffer
+normal economic condition + <2.5%
+recession + 0%
+if not meet, no dividend, discretionaty salary or stock repurchase
+
+against leverage
+leverage ratio = T1/total exposure >= 3%
+total exposure has is not related with risk
+
+against liquidity
+[1] liquidity coverage ratio (LCR)
+LCR = high quality liquidity assets/net cash outflows in 30 days >= 1
+where HQLA (high qualitt liquidity assets) - high credit rating, certain valuation, low correlateion, exchange-traded
+- HQLA = level 1 asset + level 2 asset
+- Level 1 asset
+  include cash, reserves, 0% risk-weighted marketable securities, non-zero risk-weighted securities of sovereign and central banks
+- Level 2 asset
+  can only comprise 40% of the high-quality 
+- total net cash outflows
+  = outflow - min(inflow, 75% outflow)
+[2] net stable funding ratio (NSFR)
+NSFR = available amount of stable funding/required amount of stable funding >= 1
+  available - debt + equity, * available stable funding (ASF) factor
+  required - asset, * required stable funding (RSF) factor
+
+contingent convertible bonds (CoCos)
+if T1 < x%, convert bonds to equity to increase T1
+
+
+## ---------------------------------------------------------------------------------------
+Dodd-Frank Act
+try to learn and avoid GFC
+- deposit insured by FDIC increased to $250,000
+- Volcker rule - curtailed proprietary trading
+- rating agencies make assumptions and method transparent
+- independent directors in board
+- systematically important financial institutions (SIFIs) - living wills
+
+## ---------------------------------------------------------------------------------------
+central clearing
+in OTC, cleared through CCPs, traded on eletronic platforms, reported to trade repository
+
+## ---------------------------------------------------------------------------------------
+FRTB fundamental review of the trading book
+- ES 97.5% 12-month instead of VaR 99% 10day
+  12-month stressed period ES  -  max(yesterday, last 6 month)
+
+## ---------------------------------------------------------------------------------------
+SMA for op risk capital charge
+replace all methods in op risk
+step 1: business indicator (BI)
+BI = ILDC + SC + FC
+where ILDC - interest, leases and dividend, SC - services, FC - financial
+step 2: business indicator component (BIC)
+BIC = BI * marginal coefficient
+where marginal coefficient - progressive tax rate
+step 3: internal loss multiplier (ILM)
+ORC = BIC * ILM
