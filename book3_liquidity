@@ -1,11 +1,12 @@
 CH 14-15, 17, 18
-READING 40-41, 43, 44
+READING 50-51, 53-54
 1. classifications 
 [1] transaction liquidity risk
 - risk of moving the price of an asset advesely in the act of buying or selling
   low if assets can be liquidated quickly, cheaply and lower mkt impact
 - asset is liquid if it is a good substitute for cash, and with low liquidity premium
 - mkt is liquid if mkt participants can put on or unwind position quickly, without excessive cost
+- larger and fewer traders will ultimately lower liquidity
 [2] bal sheet risk a.k.a funding liquidity risk
 - creditors withdraw credit
 [3] systemic risk
@@ -38,6 +39,7 @@ VaR could take normal or lognormal
 market impact, based on the responsiveness of the market
 elasticity E = (d_p/p)/(d_N/N)   -  price change by one percent trade    
 LVaR = VaR * (1 - d_p/p) = VaR * (1 - E * (d_N/N))
+in my feeling, LVaR = VaR * (1 + |d_p/p|)
 
 3. funding liquidity
 liquidity at risk (LaR) - maximum likely cash outflow
@@ -48,7 +50,7 @@ borrowing and lending/ margin requirements/ collateral obligations/ exercise of 
 [1] crash metrics
 P/L = delta*d_S + (gamma/2)*(d_s)^2
 argmax P/L = -delta/gamma
-max P/L = delta^2/gamma
+max P/L = -delta^2/(2*gamma)
 [2] worst-case
 [3] crisis-scenario analysis
 
@@ -68,8 +70,8 @@ lenders want to do cash management, therefore only care about the quality of col
 but not a particular security or class
 'the' GC rate - U.S. Treasury as collateral
 fed funds-GC spread = federal funds rate (with credit risk) - the GC rate
-the spread widens when Treasuries become more scarcer, higher price, lower return, lower GC rate
-                       or financial stress
+the spread widens when collateral become more scarcer (during financial stress), hence more needed, lower GC rate required
+
 - special collateral
 lenders want to do security financing, therefore want to get a particular security as collater,
 short it, buy back later, make a profit, then give it back to repo borrower
@@ -89,6 +91,7 @@ if there is dividend, the lender would require the dividend
 rollover risk - short-term debt cannot be refinanced easily
 asset-liability management - avilable cash and short-term securities, trade-off between capital reserve and return
 LBO - leveraged buyout, take additional debt to acquire
+- MMMF (money mkt mutual fund) does not have to MtM, but use amotized cost method 
 
 6. leverage
 R_equity = Leverage * R_asset - (Leverage - 1)*R_debt
