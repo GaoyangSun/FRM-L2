@@ -45,7 +45,7 @@ adjustment for collateral
 [2] comprehensive
     new exposure = exposure * (1 + adjustment factor) - collateral * (1 - adjustment factor)
     RWA = new exposure * weight_exposure
-[3] internal ratings based apparoach
+[3] internal ratings based apparoach (IRB)
 use bank's own internal estimates to determine the risk weightings, to reduce the capital requirement
 cannot be less than 90% of prev year, no less than 80% of last two yrs
 - credit risk charge = WCL - EL = (WCDR - PD) * EAD * LGD * MA
@@ -104,7 +104,7 @@ Basel II.5
 - specifically targeted for market risk
 concern 1: HS VaR has ghost effect
 SVaR - stressed Value at Risk, based on 10-day, 99% from a significantly stressed period
-max(SVaR_t-1 * Ms * SVaR_mean_60)
+max(SVaR_t-1,  Ms * SVaR_mean_60)
 where Ms 3~4, depending on risk management quality
 
 concern 2: trading book has lower capital requirement than banking book
@@ -140,11 +140,11 @@ if T1 core>4.5% but <7% with CCB, less dividend should be delivery.
 - countercyclical buffer
 normal economic condition + <2.5%
 recession + 0%
-if not meet, no dividend, discretionaty salary or stock repurchase
+if not met, no dividend, discretionaty salary or stock repurchase
 
 against leverage
 leverage ratio = T1/total exposure >= 3%
-total exposure has is not related with risk
+total exposure is not related with risk
 
 against liquidity
 [1] liquidity coverage ratio (LCR)
