@@ -44,7 +44,7 @@ low frequency/high severity (LFHS)
   [1] BIA - basic indicator approach
       operational risk capital of BIA = certain percentage of average gross income (net interest income + non-interest income)
       ORC_BIA = alpha * GI
-      where GI of a single year cannot be lower than 0, alpha = 15%
+      where GI is the average of gross income in last 3 yrs, and a single year cannot be lower than 0, alpha = 15%
   [2] SA - standardized approach
       separate business into 8 business line, different weight in business line
       18% weighting: corporate finance/ trading and sales/ settlement and pmt activities
@@ -145,7 +145,7 @@ managing outsourcing risk
   
 6. management of outsourcing
 risk sources
-compliance/ concentration/ repurational/ country/ operational/ legal
+compliance/ concentration/ reputational/ country/ operational/ legal
 
 core element
   - risk assessment
@@ -159,3 +159,33 @@ core element
   - incentive compensation
   - monitoring
   - continuity and contingency
+- country risk does not necessarily exists if you have a branch in another country
+- program should contain less detail if only a few outsourced activities as the risk are substantially reduced
+- program should not deal wiht all activties that impact the institution, but only the ones with material impact
+
+
+7. extreme value theory
+different from CLT, it estimates the params used to describe extreme movements
+- generalized extreme value GEV
+if epsilon <> 0
+F(X|epsilon, mean, sigma) = exp[-1+(1+epsilon*((x-mean)/sigma))^(-1/epsilon)]
+if epsilon = 0
+F(X|epsilon, mean, sigma) = exp[-exp((x-mean)/sigma)] 
+where (1 + epsilon*((x-mean)/sigma))>)
+if the research is confident that the parent distribution is a t-distribution, or wish to be conservative
+then epsilon > 0, GEV becomes a Frechet distribution, which has a heavy tail
+if the research cannot the reject the H0 that epsilon = 0,
+then espilon = 0, GEV becomes a Gumbei distribution, which has a light tail
+otherwise, GEC becomes a Weibull distributionm which has a lighter tail, and that is not usually in finance world
+
+- peaks-over-threshold (POT)
+F(X) = P(X-u<=x|X>u) = [F(x+u) - F(u)]/[1-F(u)]
+- generalized Pareto distribution GPD
+as u get large, F(x) converages to GPD
+if epsilon <> 0, 1 - [1 + epsilon*x/beta]^(-1/epsilon) 
+if epsilon == 0, 1 - exp(-x/beta)
+- VaR using POT
+VaR = u + (beta/epsilon)*[[(n/Nu)*(1 - confidence level)]^(-epsilon) - 1]
+where u - threshold, n - #obs, Nu - #obs that exceed threshold
+- ES using POT
+ES = VaR/(1-epsilon) + [beta - epsilon*u]/(1-epsilon)
