@@ -1,2 +1,63 @@
 CH 4, 9-10, 16, 19
 READING 40, 45-46, 52, 55
+
+model risk in VaR
+confidence interval, time period, assumptions about distribution
+
+model risk in mapping
+duration mapping/ CF mapping
+different risk factors
+basis risk in a position and its hedge, despite their similar properties
+
+mitigating model risk
+[1] improve model and develop bette stat tools
+[2] independent vetting
+    soundness of model - if it applies to the circumstance
+    benchmark modeling - compare it with other models
+    health check - does it satisfy basic condition, e.g. put-call parity
+    
+validating rating models (developed and adpoted in each company)
+[1] quantitative
+    - sample representativeness/ dynamic properties （robustness)
+    - calibration
+      on predictive power of PD
+      ex post - compare forecasted and realized
+      ex ante - compare forecasted and other sources
+    - discriminatory
+      on differentiating power between default and non-default
+      ex post - backtesting
+[2] qualitative  
+    - design
+      obtain PD/ completeness/ objectivity/ acceptance/ consistency
+    - data
+      completeness of data/ volume of available data/ representativeness/ consistency and inregrity/ adequacy of process
+[3] process
+    building steps, weakness and limitations
+    
+Case 1: 2005 CDX.NA.IG credit correlation
+action: sell protection on equity (long equity),
+        buy protection on mezz (short mezz),
+aim: default-risk-neutral, to earn a postive net spread
+measure: default 01 to determine hedge ratio
+assumption: constant correlation and recovery amount
+fact: default correlation goes down
+result: equity more likely to default, mezz less likely to default
+        lose money on both sides
+fix: stress test correlation
+     overlay hedge - long single-name protection in high PD names
+     
+Case 2: 2007 subprime default models
+assumption: house price appreciation/ low geographical correlation
+
+Case 3: London Whale Trading 
+operational risk: assign favorable closing prices to minimize loss
+corporate govern: risk limits breaches were disregarded
+model risk: adjust VaR model to lower VaR by 50%
+
+Case 4: LTCM
+assumption: time horizon - time it takes to raise new capital - should be longer
+            liquidity risk was ignored
+            correlation and volatilities were ignore
+result: volatilities rose hugely
+        correlateion between mkts and instruments close to 1
+        liquidity dried up
