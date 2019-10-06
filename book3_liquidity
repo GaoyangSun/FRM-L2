@@ -14,8 +14,8 @@ READING 50-51, 53-54
 
 2. factors that affect transaction liquidity
 - # traders/ frequency and size of trades/ time/ cost
-- bid-ask spread as a measure
-[1] exogenous
+
+[1] exogenous - bid-ask spread as a measure
 if position is small for the market, the spread is exogenous
 liquidity VaR = VaR + liquidity cost
 where liquidity cost = 0.5 * asset value * spread
@@ -35,18 +35,19 @@ assume spread could take an extreme value
 LVaR = VaR + 0.5 * [spread_mean + Z' * spread_sigma]*V
 VaR could take normal or lognormal
 
-[2] endogenous
+[2] endogenous - elasticity as a measure
 market impact, based on the responsiveness of the market
 elasticity E = (d_p/p)/(d_N/N)   -  price change by one percent trade    
 LVaR = VaR * (1 - d_p/p) = VaR * (1 - E * (d_N/N))
 in my feeling, LVaR = VaR * (1 + |d_p/p|)
 
-3. funding liquidity
+3. funding liquidity - managed by ALM
 liquidity at risk (LaR) - maximum likely cash outflow
 factors that affect LaR:
-borrowing and lending/ margin requirements/ collateral obligations/ exercise of options
+borrowing and lending/ margin requirements/ collateral obligations/ exercise of options/ rollover (short-term financing in bank)
 
 4. approaches to estimate crisis liquidity risk
+huge number of sell orders, bid-ask spread rises, slow down the execution, liquidity dried up
 [1] crash metrics
 P/L = delta*d_S + (gamma/2)*(d_s)^2
 argmax P/L = -delta/gamma
@@ -54,7 +55,17 @@ max P/L = -delta^2/(2*gamma)
 [2] worst-case
 [3] crisis-scenario analysis
 
-5. repo
+5. liquidity risk in ...
+- commercial banks
+  bank run/ rollover risk (short-term financing roll over)
+- structured credit product
+  asset pool have much longer maturities than funds
+- money market mutual fund
+  high proportion of shareholder redeem thier shares
+- hedge funds
+  shareholders redeem, unhealthy capital structure
+  
+6. repo
 short-term loan secured by collateral, 
 a party sells a security at a specified price with a commitment to buy back the security at another specified price
 final price = inital price * (1 + rate*n/365)
@@ -78,8 +89,8 @@ short it, buy back later, make a profit, then give it back to repo borrower
 special spreads = the GC rate - special rates
 newly-issued bond (on-the-run) often trade special (lower repo rate), then goes off-the-run, old, double-old (gc)
 
-6. source of liquidity risk
-- markets for collateral
+7. source of liquidity risk
+- markets for collateral (initial margin + variation margin (with varying exposure))
 [1] margin loans
 you have stocks, pledge the stock to borrow money, then use the money to buy other stocks
 [2] repo
@@ -93,7 +104,23 @@ asset-liability management - avilable cash and short-term securities, trade-off 
 LBO - leveraged buyout, take additional debt to acquire
 - MMMF (money mkt mutual fund) does not have to MtM, but use amotized cost method 
 
-6. leverage
+8. leverage
 R_equity = Leverage * R_asset - (Leverage - 1)*R_debt
 gross leverage = all asset/ capital
 net leverage = (long position - short position)/ capital
+
+9. dealer bank
+- OTC market maker, "too big to fail"
+- securities dealing, underwriting, trading/ OTC derivatives/ prime brokerage and asset mgt
+- liquidity risk, questioned on their solvency by
+  short-term creditors/ prime-brokerage client/ derivatives counterparties/ loss of clearing-bank privilege
+- compared to traditional bank
+  no default insurance/ or unwilling to endure cost of insurance
+  
+  
+  
+
+
+
+
+
