@@ -1,6 +1,7 @@
 CH 4, 9-10, 16, 19
 READING 40, 45-46, 52, 55
 
+model part----------------------------
 model risk in VaR
 confidence interval, time period, assumptions about distribution
 
@@ -61,3 +62,19 @@ assumption: time horizon - time it takes to raise new capital - should be longer
 result: volatilities rose hugely
         correlateion between mkts and instruments close to 1
         liquidity dried up
+
+data part------------------------------
+
+data quality
+accuracy/ reasonableness/ completeness/ currency/ consistency/ uniqueness
+
+data quality mgt
+- operational data governance 
+  data satisfies the firm's business needs
+- data governance program
+  define roles and accountabilities
+- data quality scorecard
+  [1] simple metrics
+      measure defined dimensions of data quality
+  [2] complex metrics
+      roll-up score - a function of specific weights to metrics
