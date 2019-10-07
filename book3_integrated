@@ -1,2 +1,69 @@
 CH 2-3, 11-13
 READING 38-39, 47-49
+
+implementation of an ERM (enterprise risk mgt) system
+- determine firm's risk appetite
+- estimate capital requirement
+- determine mix of capital and risk
+- decentralize and distribute
+
+correlation in risk aggregation
+- firm-wide VaR
+- diversification across risk categories
+
+RAF (risk appetitie framework)
+- strong internal relationships at firm/ strong accountability structure/ common risk appetite language
+- risk appetite statement establishes  
+  boundaries for the desired business/ desired approach to a varity of business and risk areas/
+- flexible and responsive to environment changes/ prepare for unexpected things
+should have or do
+- strong support from CEO/ strong alliance between CRO and CFO
+- each business line align with firm's risk appetite/ analyze mid-term business plan/ keep from unknowingly drift
+
+IT infrastructure
+- aggregate timely and accurate data/ internal risk reporting requirements/ bring together IT person and business line
+should 
+- appoint a data administator and a data owner for data accuracy, integrity and avilable/ internal audit
+why bad IT 
+- competition between business line and IT/ budget reduction due to short-term consideration
+  bad governance/ mergers could produce multiple platform
+why bad data aggregation
+- manual intervention/ multiple infrastructure platform/ legal-entity instead of firm-wide
+best practices
+- limited reliance on manual intervention/ consolidated platforms and database
+  cover all relevent transactional and accounting system/ periodic reconciliation between risk and financial data
+
+
+capital mgt (by firm, as oppsed to by Basel)
+
+risk-adjusted return on capital
+RAROC = risk-adjusted return/Economic Capital(EC)
+where risk-adjusted return = revenues + return on EC(risk-free) - (operating and interest) expenses - EL - taxes
+      economic capital = UL = WCL - EL
+      taxes on (revenues + return on EC(risk-free) - (operating and interest) expenses - EL)
+compare RAROC to cost of equity 
+assumptions: through-the-cycle PD, which reduce volatility
+
+hurdle rate
+- after-tax weighted-average cost of equity capital
+h_at = (commonEquity*R_ce + preferredEquity*R_pe)/(commonEquity + preferredEquity)
+cost of preferred equity R_pe - yield
+cost of common equity R_ce - capm
+
+adjusted RAROC
+- takes into account the systematic risk
+adjusted RAROC = RAROC - beta*(R_m - R_f)
+compare it risk-free rate, instead of hurdle rate
+- best practice
+  senior mgt commitment/ communication and education/ ongoing consultation
+  integrity of the process/ combine with qualitative factors/ active capital mgt process
+  
+economic capital framework
+- risk measures (VaR or ES)
+- risk aggregation (interactions between risk)
+- dependency modeling in credit risk (correlation estimates, especially PD-dependent)
+- counterparty credit risk (tradeoff between methods)
+
+Federal Reserve's Capital Plan Rule
+mainly on BHC bank holding corporations
+CCAR (comprehensive capital analysis and review)
