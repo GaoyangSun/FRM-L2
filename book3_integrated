@@ -33,7 +33,7 @@ best practices
 - limited reliance on manual intervention/ consolidated platforms and database
   cover all relevent transactional and accounting system/ periodic reconciliation between risk and financial data
 
-
+## ---------------------------------------------------------------------------------------
 capital mgt (by firm, as oppsed to by Basel)
 
 risk-adjusted return on capital
@@ -58,6 +58,7 @@ compare it risk-free rate, instead of hurdle rate
   senior mgt commitment/ communication and education/ ongoing consultation
   integrity of the process/ combine with qualitative factors/ active capital mgt process
   
+## ---------------------------------------------------------------------------------------
 economic capital framework
 - risk measures (VaR or ES)
 - risk aggregation (interactions between risk)
@@ -65,5 +66,40 @@ economic capital framework
 - counterparty credit risk (tradeoff between methods)
 
 Federal Reserve's Capital Plan Rule
-mainly on BHC bank holding corporations
+- mainly on BHC bank holding corporations
+- CCAR (comprehensive capital analysis and review)
+
+## ---------------------------------------------------------------------------------------
+stress testing
+SCAP （supervisory capital assessment plan) process
+step 1 - design scenario - GDP/ unemployment/ house price index
+step 2 - modeling loss
+step 3 - modeling revenue
+step 4 - modeling bal sheet
+step 5 - calculate capital adequacy
+
 CCAR (comprehensive capital analysis and review)
+use own scenarios instead of "one size fits all" from SCAP
+
+challenges in stress testing
+- coherence
+  coherence of parameters in scenarios, which are inherently multi-factor
+- translation
+  translate macro-risk factors into firm-specific outcomes (P/L)
+- static or dynamic
+  bal sheet, should not drop below capital requirement in any quarter
+  
+## ---------------------------------------------------------------------------------------
+AML and CFT 
+Basel recommend to include money laundering and financing of terrorism risk within overall risk mgt
+lines of defence
+[1] bank staff adequately trained
+[2] appoint a chief officer
+[3] internal aduit
+
+basic due diligence - all customers
+commensurate due diligence - certain customers
+
+group-wide ML/FT risk mgt
+
+step 4 - modeling bal sheet
