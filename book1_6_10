@@ -22,6 +22,8 @@ cor_actual = (2/(n^2 - n))*cor(i,j)  [i>j]
 - long call on Dow Jones, short call on individual stocks
 when correlation rise(bear mkt), both underlyings goes down
 but more volatility in Dow Jones due to the correlation, less volatile in stocks
+[a better explanation] say individual volatility hold still, correlation goes up, sigma_mkt = sigma_stock*cor_mat*sigma_stock_T
+so sigma_mkt goes up, hence, 
 more value of call on Dow Jones, less value of call on indi stock
 u make money
 - variance swap
