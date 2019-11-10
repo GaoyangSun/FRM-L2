@@ -4,3 +4,7 @@
 62 70
 
 26 33
+26 - @ the same C.I. test, 95% VaR creates a wider non-rejection region than that of 99%,
+     and is therefore more reliable
+33 - risk factor(e.g. duration) is choosen to correspond to average portfolio maturity in principal mapping,
+     because it could contain multiple principals.
