@@ -7,3 +7,21 @@
 80 82 83 85 86
 94 95 96 97 108 
 113 115 116 117
+
+11 - P(X=x) = (lambda^x)*exp(-lambda)/x!, which CANNOT be estimated with binominal distribution, which is x*lambda^x*(1-lambda)^(n-x)
+16 - (1-pd)*pv(pmt) = pv0
+18 - exactly the same as above
+21 - exactly the same as above
+22 - equity = call, debt = pv(bond) - put
+31 - dtd = (A-K)/A*sigma_A, where K = a*ST + b*LT, A = ST + LT + xxx
+35 - pd = 1 - exp(-lambda*t), which is positively correlated with lambda
+52 - x is priced p0 at sth. currently p1. exposure = p1 - p0*exp(rf*(T-t))
+61 - pd_t = (1-exp(lambda*t+1)) - (1-exp(lambda*t)),  cva = pd_t*ee*lgd
+80 - ccp oes not reduce default risk, but can reduce operational risk
+82 - calculation error. normal swap - value, digitial swap - fixed percent
+83 - buy a cds of underly - risk transfer to joint risk of default(counterparty) and default(underlying)
+94 - CLN. sell a CL is like buying a CDS, which transfer default risk. 
+     (if underlying default, the defaulted principal, .i.e collater is returned to investor)
+113 - calculation error. yearly pr = 1 - (1-smm)^12
+117 - AR = A_r/A_p, where A_r is the area above the diagnol, A_p is the prefect model above the diagnol
+      therefore, random model's AR = 0
