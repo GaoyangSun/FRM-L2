@@ -17,7 +17,7 @@
 35 - pd = 1 - exp(-lambda*t), which is positively correlated with lambda
 52 - x is priced p0 at sth. currently p1. exposure = p1 - p0*exp(rf*(T-t))
 61 - pd_t = (1-exp(lambda*t+1)) - (1-exp(lambda*t)),  cva = pd_t*ee*lgd
-80 - ccp oes not reduce default risk, but can reduce operational risk
+80 - ccp does not reduce default risk, but can reduce operational risk
 82 - calculation error. normal swap - value, digitial swap - fixed percent
 83 - buy a cds of underly - risk transfer to joint risk of default(counterparty) and default(underlying)
 94 - CLN. sell a CL is like buying a CDS, which transfer default risk. 
