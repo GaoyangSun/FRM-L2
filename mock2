@@ -5,3 +5,20 @@
 correct 81.25%
 
 doubt 9 25 32 67
+
+3 - delta-normal VaR is simpler than portfolio standard deviation. Var can be specifically form track economic capital in bank
+4 - optimal weights does not have to sum to 1
+7 - leverage ratio = A/E
+9 - LDA, instead of BIA, is widely used in insurance and actuarial science
+10 - in a corporate bonds, VaR covers interest rate risk, SRC covers credit risk
+13 - be careful about which axis corresponds to which distributions
+19 - break clause/Liquidity put - allows to terminate transactions at prespecified future dates
+     walkaway clause - walk away if counterparty default
+     additional termination event(ATE) - close out specific transaction if ratings downgrade happends
+21 - time dependency takes the form of clustering, the most common method is to use GEV distributions to block maxima
+     as the maxima are usually less clustered
+25 - kendall's tau
+     (#concordant - #discordant) / (n(n-1)/2)
+32 - physical delivery, deliver asset, receive face value
+42 - risk shifting - risk&reward transfer within a firm's capital strcture
+80 - DL can now take unstructured data
