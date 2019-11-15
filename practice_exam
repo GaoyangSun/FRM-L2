@@ -1,3 +1,14 @@
-3  44 63 65 71 75 
+3  44 63 65 74 
 
 doubt 69 76
+
+3 - dtd - ln(V/F)/sigma_v,  sigma_v in percent%
+    the lower the dtd, the more likely to default
+44 - risk-neutral default probaility = real-world default probability + default risk premium + liquidity risk premium
+63 - sigma_alpha = residual risk * IC
+69 - dealt with
+71 - derivative exposure (and other off-bal sheet items) are part of total exposure. as exposure declines, total capital ratop increase
+     increase in CVA charge increase the amount of risk-weighted assets
+     in NSFR, raise CET1 has a weight of 100%, invest in gold has a weight of 50%
+74 - believe in yourself.
+     the value of CDS will increase if the default prob increase, despite the wrong-way risk presented
