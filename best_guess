@@ -5,3 +5,36 @@
 80
 
 doubt: 3 10 14 65 68 71 
+1 - long 6*12 FRA, borrow money from 7month to 12month, i.e. long 6-month bill and short 12-month bill
+3 - ORC = BIC * ILM
+9 - longer forecasting should be used for non-margined counteries than margined ones,
+    as margin's value changes often, and is therefore needed to adjusted more frequently
+12 - ordinal correlation should be used carefully with large outliers (they seem to be ambigous about it)
+     pearson correlation of 0 implies E(x1,x2) = E(x1)*E(x2), often implies linear independence
+14 - modeling frequency - binominal/ possion/ negative binominal
+     moeling serverity - lognormal/ weibull/ generalized gamma/ exponential/ generlized pareto/ transformed beta
+22 - be careful about minimizing portoflio VaR, [sell the hugese Component VaR = V * MVaR]
+28 - issuer of CLN = protection buyer, note holder = protection seller
+30 - prepmt amount = initial - end - scheduled pmt
+     prepmt ratio = prepmt amount/(initial - scheduled pmt)
+40 - blockchain has NOT enabled transaction validation fast enough for financial mkts. (nothing is ever fast enough)
+46 - difference between bond and MBS
+     corporations have a dynamic capital structure because they can undergo restructuring by issuing more debt,
+     while MBS pools have a relatively static capital structure
+48 - ?
+51 - credit analysis of financial institutions tends to be more straightforward than other non-financials, because of financial's similarity
+     scoring model is not the only factor in retail, institutions' analysis are always more detailed than retail,
+     sovereigns has more factors
+57 - Q-Q plot. be careful about which axis corresponds to which distributions
+60 - you cannot generate higher risk estimate by using volatility-weighting if past have higher volatility
+62 - in pricing illiquid instruments that are used for hedging purpose, banks should mark-to-model whenever possible
+     weekly verification of inputs and assumptions are good enough for Basel
+63 - calculation error - be sure to multiply rf in binominal tree
+66 - UL = WCL - EL
+69 - in determining SOFR, the lowest 25% of rates are excluded with respect to refining FICC DVP bilateral trades
+73 - low-risk anomaly: vol_t, vol_t-1 negatively correlated with return
+                       beta_t positively related with returns, realized beta negatively correlated with return
+                       minimum variance portfolio do better than mkt
+74 - to reach optimal portfolio, increase stocks with higher (ri-rf)/mvar_i
+79 - financial institution face barriers in applying machine learning systems as supervisory learning are difficult to apply.
+     combining Ml with human decision tends NOT to produce inferior result
